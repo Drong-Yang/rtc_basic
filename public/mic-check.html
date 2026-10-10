@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>本地麦克风检测</title>
+<style>body{font:16px/1.7 system-ui;margin:40px auto;padding:0 20px;max-width:720px;color:#182230}button,select{font:inherit;padding:9px;margin:6px 0}select{width:100%}meter{width:100%;height:35px}pre{white-space:pre-wrap;background:#f2f4f7;padding:18px;border-radius:12px}button{cursor:pointer}</style>
+<h1>本地麦克风检测</h1>
+<p>点击开始后允许麦克风，连续说话几秒。检测仅在当前浏览器进行，不录音、不上传声音，15 秒后自动停止。</p>
+<label for="device">输入设备（首次允许麦克风后显示设备名称）</label><select id="device"><option value="">系统默认麦克风</option></select>
+<button id="start">开始检测 / 重新检测</button> <button id="stop" disabled>停止检测</button>
+<meter id="level" min="0" max="100" value="0"></meter><p id="status" role="status">尚未开始</p>
+<pre id="report">如默认设备没有声音，请选择其他麦克风再检测。</pre>
+<script>
+const device=document.getElementById('device'),start=document.getElementById('start'),stop=document.getElementById('stop'),level=document.getElementById('level'),status=document.getElementById('status'),report=document.getElementById('report');
+let stream,context,frame,timer,peak=0,busy=false;
+function end(){cancelAnimationFrame(frame);clearTimeout(timer);stream?.getTracks().forEach(t=>t.stop());stream=null;context?.close();context=null;stop.disabled=true;start.disabled=false;device.disabled=false;busy=false;level.value=0;}
+start.onclick=async()=>{
+ if(busy)return;end();busy=true;start.disabled=true;device.disabled=true;peak=0;
+ try{
+  context=new AudioContext();await context.resume();
+  stream=await navigator.mediaDevices.getUserMedia({audio:device.value?{deviceId:{exact:device.value}}:true,video:false});
+  const track=stream.getAudioTracks()[0],settings=track.getSettings(),chosen=device.value;
+  const inputs=(await navigator.mediaDevices.enumerateDevices()).filter(d=>d.kind==='audioinput');
+  device.replaceChildren(new Option('系统默认麦克风',''),...inputs.filter(d=>d.deviceId).map(d=>new Option(d.label||'未命名麦克风',d.deviceId)));
+  device.value=chosen;
+  const source=context.createMediaStreamSource(stream),analyser=context.createAnalyser();analyser.fftSize=1024;source.connect(analyser);
+  const samples=new Float32Array(analyser.fftSize);stop.disabled=false;
+  function draw(){analyser.getFloatTimeDomainData(samples);const rms=Math.sqrt(samples.reduce((sum,x)=>sum+x*x,0)/samples.length)*100;peak=Math.max(peak,rms);level.value=Math.min(100,rms*5);
+   status.textContent=`正在检测，音量 ${rms.toFixed(2)}%，最高 ${peak.toFixed(2)}%`;
+   report.textContent=`实际采集设备：${track.label}\n音频轨道：${track.readyState}，enabled=${track.enabled}，muted=${track.muted}\n音频处理状态：${context.state}\n采样率：${settings.sampleRate||'未知'} Hz\n最高输入音量：${peak.toFixed(2)}%\n${peak>0.2?'已检测到输入声音。若 RTC 内仍为 0，需要检查 RTC 音频处理链路。':'尚未检测到明显声音。请检查物理静音开关，或换一个输入设备。'}`;
+   frame=requestAnimationFrame(draw);
+  }draw();timer=setTimeout(()=>{status.textContent=`检测结束，最高音量 ${peak.toFixed(2)}%`;end();},15000);
+ }catch(error){status.textContent=`检测失败：${error.name}`;report.textContent=String(error.message)+'\nNotAllowedError：请允许本站麦克风，并检查 Windows 麦克风隐私权限。\nNotReadableError：设备可能被占用或无法打开。\nNotFoundError：未找到输入设备。';end();}
+};
+stop.onclick=()=>{status.textContent=`检测已停止，最高音量 ${peak.toFixed(2)}%`;end();};
+window.addEventListener('pagehide',end);
+</script></html>

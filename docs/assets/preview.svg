@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560">
+  <defs><linearGradient id="bg"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#164e63"/></linearGradient></defs>
+  <rect width="1200" height="560" rx="24" fill="url(#bg)"/>
+  <rect x="70" y="66" width="1060" height="428" rx="20" fill="#0f172a" stroke="#38bdf8" stroke-opacity=".5"/>
+  <text x="120" y="152" font-family="sans-serif" font-size="36" fill="#e2e8f0">Voice Commerce Assistant</text>
+  <text x="120" y="214" font-family="sans-serif" font-size="24" fill="#7dd3fc">RTC + RAG + Streaming LLM</text>
+  <path d="M120 300h60l20-35 30 90 30-120 30 120 30-90 20 35h130" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linejoin="round"/>
+  <text x="120" y="419" font-family="sans-serif" font-size="21" fill="#94a3b8">Screenshot placeholder — replace with your demo capture</text>
+</svg>

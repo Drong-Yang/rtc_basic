@@ -1,0 +1,24 @@
+{
+  "ASRConfig": {
+    "Provider": "volcano",
+    "ProviderParams": {
+      "Mode": "bigmodel",
+      "Credential": {
+        "ApiResourceId": "volc.seedasr.sauc.duration"
+      },
+      "StreamMode": 2,
+      "VolcanoASRParameters": "{}"
+    }
+  },
+  "TTSConfig": {
+    "Provider": "volcano_bidirection",
+    "ProviderParams": {
+      "Credential": {
+        "ResourceId": "seed-tts-2.0"
+      },
+      "VolcanoTTSParameters": "{\"req_params\":{\"speaker\":\"zh_female_vv_uranus_bigtts\"}}"
+    }
+  },
+  "SubtitleConfig": {},
+  "InterruptMode": 0
+}

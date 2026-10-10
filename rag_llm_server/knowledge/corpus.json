@@ -1,0 +1,1103 @@
+{
+  "version": "ecommerce-v1",
+  "documents": [
+    {
+      "doc_id": "ecommerce_demo_v1_0",
+      "file": "ecommerce_demo_v1_0.md",
+      "source": "电商客服知识库-演示用.md",
+      "sha256": "8ffa1f5a1ab4db5ec7204756efa6fd46c088e8855b65abb3760737b57f0cddb8",
+      "original_sha256": "1ba507697a8bcbdc7a09fb923858695b997556551e642d7ee85276bc4a3beddb"
+    },
+    {
+      "doc_id": "ecommerce_demo_v1_1",
+      "file": "ecommerce_demo_v1_1.md",
+      "source": "电商知识库-3C商品明细1-充电能源类-演示用.md",
+      "sha256": "e450b0918244eb5214d0f281c97099cdc7dba0ba2df7c241ebc4aaaaf71e0f86",
+      "original_sha256": "f280f4250153c477c21d491e959ac41989773df65a5d6adef07525d1f5c0a186"
+    },
+    {
+      "doc_id": "ecommerce_demo_v1_2",
+      "file": "ecommerce_demo_v1_2.md",
+      "source": "电商知识库-3C商品明细2-音频可穿戴类-演示用.md",
+      "sha256": "98a42bc766d835e73bfe610483e4e6becebb1bd3b889262bf983c6df81306028",
+      "original_sha256": "98a42bc766d835e73bfe610483e4e6becebb1bd3b889262bf983c6df81306028"
+    },
+    {
+      "doc_id": "ecommerce_demo_v1_3",
+      "file": "ecommerce_demo_v1_3.md",
+      "source": "电商知识库-3C商品明细3-终端外设类-演示用.md",
+      "sha256": "80ce1664654d7fbecad72cb0a5a4f84417fca59b747b876015f64bac961e5583",
+      "original_sha256": "80ce1664654d7fbecad72cb0a5a4f84417fca59b747b876015f64bac961e5583"
+    }
+  ],
+  "chunks": [
+    {
+      "id": "ecommerce_demo_v1_0_0",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "1.1 什么是七天无理由退换货",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "消费者通过平台购物，在签收商品后的 7 天内，如因\"不喜欢、不想要了\"等主观原因不愿完成交易，在商品完好、不影响商家二次销售的前提下，可以申请无理由退换货（部分商品和类目除外）。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_1",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "1.2 七天期限从什么时候开始算",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "七天时限需按对应平台的签收记录与公示计算规则确认，不以本助手判断代替订单售后页面。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_2",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "1.3 商品\"完好\"是什么标准",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "商品应保持原有品质和功能：商品本身、配件、商标吊牌、使用说明书、入网标识、商标标识等齐全，外包装完整，没有受损、受污、刮开防伪、激活授权等情形，无外观磨损、系统使用记录等痕迹。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_3",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "1.4 外包装完整如何认定",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "指包装没有缺失、整体结构完整。商品包装在运输或拆卸过程中产生的难以避免的适度变形、污渍、局部破损，不认定为影响包装完整。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_4",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "1.5 哪些商品通常不支持七天无理由",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "根据常见平台规则与相关法律规定，以下商品一般不适用：\n1. 消费者**定作/定制**的商品；\n2. **鲜活易腐**的商品（如生鲜、散装食品）；\n3. 在线下载或拆封后的**数字化商品**（音像、软件、充值类等）；\n4. 交付的**报纸、期刊**；\n5. 其他在商品详情页明确标注不支持的商品。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_5",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "1.6 特殊商品的无理由退货规则",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "特殊商品需核对依法不适用退货的范围、购买时确认情况及实际商品状态。不能仅以“耳机已拆封”一概拒绝退货。为查验而拆包或合理调试不当然影响商品完好；超出必要查验的使用、激活等需结合具体情形判断。具体请联系购买平台核验。\n来源：https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/fgs/art/2023/art_26ca8fe29e184edd899fa0a7a060d935.html",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_6",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "1.7 无理由退货的运费谁来承担",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "因消费者个人主观原因（非质量问题）退货的，退换货运费由**买家自行承担**；若商品提供包邮服务，买家仅承担退货运费。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_7",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "1.8 质量问题退货的运费谁来承担",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "因商品质量问题、收到的商品与网上描述不符而导致的退货，退货运费应由**卖家承担**，买家退货后可按规则申请运费补偿。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_8",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "1.9 退货时赠品、发票怎么处理",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "退货时如有发票或赠品，原则上需一并退回。赠品已使用、破损或遗失的，可能需按赠品价值从货款中扣除相应价款（具体以平台/店铺规则为准）。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_9",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "1.10 包装已打开还能无理由退货吗",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "仅因必要查验打开包装，不应直接等同于商品不完好；需结合商品品质、功能、配件及实际使用情况判断。不能笼统承诺必退或必不退，请通过对应订单核验。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_10",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "2.1 如何申请退货退款",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "在\"我的订单\"中找到对应订单，选择申请退款/退货，选择是否已收到货、填写退款原因、退款金额与说明，提交后等待商家或平台处理；退货的还需在卖家同意后填写正确的退货物流单号。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_11",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "2.2 商家处理售后申请需要多久",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "一般规则下商家需在约 **48 小时**内处理售后申请；超时未响应的，系统可能按规则自动同意售后或自动退款（具体以平台规则为准）。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_12",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "2.3 退款退回到哪里",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "一般遵循**原卡原退、原路退回**：在线支付、银行卡支付的订单退回到原支付账户；礼品卡退回到原礼品卡；现金/汇款支付一般退回到平台账户，也可按页面提示选择退到银行卡。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_13",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "2.4 退款多久能到账",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "退款到账时间因支付方式而异：一般在商家/平台处理完成后的数个工作日内到账，借记卡、信用卡到账时间不同，信用卡通常更慢一些，具体以支付机构处理进度为准。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_14",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "2.5 取消订单后如何退款",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "在线支付的订单取消后（含使用优惠券、账户余额、京东卡/礼品卡等），按各支付渠道的规则原路退回；优惠券、余额等是否返还以平台规则为准。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_15",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "2.6 退款金额以什么为限",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "赔付/退款金额一般以买家**实际支付的商品价款**为限；涉及商家责任的，可按规则包含相应邮费。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_16",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "3.1 运费险保障什么",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "订单享有退货运费险（自行购买、商家或平台赠送等）并发生退货时，由运费险按规则赔付退货的首重运费（一公斤以内），具体赔付额度根据收货地与退货地之间的距离等因素确定。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_17",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "3.2 上门取件如何赔付",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "退货时选择快递员上门取件并取件成功：\n- **在线支付**：运费险即时抵扣首重邮费，只需支付超出首重的部分，无需等待退款完成；\n- **现金支付**：取件成功后，在卖家确认收货后系统自动发起理赔，保险公司一般在 72 小时内审核，理赔款支付至买家账户。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_18",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "3.3 自行寄回如何理赔",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "自行联系快递寄回的，需在退货流程中填写正确的退货快递单号；交易结束后系统自动发起理赔，保险公司一般在 72 小时内审核，确认后赔付至买家账户。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_19",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "3.4 为什么没有享受运费险即时赔付",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "常见原因包括：\n1. 订单未购买/未获赠运费险；\n2. 未使用上门取件服务，或商品类目、收货城市未参与该服务；\n3. 同一主订单已享受过一次免运费赔付资格；\n4. 多笔订单合并一次退回，只能按实际损失享受一次赔付；\n5. 保险公司对该笔订单有异议，需进一步审核。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_20",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "3.5 运费险赔付额度如何确定",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "赔付为规定额度，系统根据买家收货地与卖家退货地之间的距离判断赔付额度；选择上门取件的，以实际上门取件页面显示的收费标准为准。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_21",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "4.1 商品出现质量问题的退换时限",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "经厂家指定/特约售后检测确认，或经平台售后确认属于商品质量问题、国家法律规定的功能性故障的，通常支持 **7 天内退货、15 天内换货**（自实际收货之日起算，具体以平台及品类规则为准）。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_22",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "4.2 第三方卖家商品的退换时限",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "以家用电器为例，第三方卖家商品自售出（实际收货）之日起，通常 7 日内可退货、15 日内可换货；具体标准以商品详情页和平台售后规则为准。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_23",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "4.3 质量问题如何认定",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "商品质量问题一般需由生产厂家指定或特约售后服务中心检测确认并出具检测报告，或由平台售后确认。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_24",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "4.4 数码家电的维修服务",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "部分数码、家电类商品提供交易成功后一定期限（如 30 天）内的维修服务；屏幕、显示器、镜头等部件可能不在该服务范围内，具体以商品详情页公示为准。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_25",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "5.1 发票内容开错了怎么办",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "建议先在线联系卖家核实原因，将错误发票寄回卖家，由卖家重新开具；若因此产生交易纠纷，可按平台流程申请介入并提供相关凭证。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_26",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "5.2 已支付发票邮寄费但不想邮寄了能退吗",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "可在发票服务页面尝试取消开票：取消成功的可退回邮寄服务费；若纸质发票已寄出，则邮寄服务费通常无法退还，以页面显示为准。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_27",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "6.1 卖家发货后查不到物流信息怎么办",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "先联系卖家核实是否真实发货、单号是否正确；若属于物流跟踪异常或卖家虚假发货，可按平台流程申请退款或发起交易纠纷。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_28",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "6.2 卖家未按约定时间发货怎么办",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "定制、预售商品卖家未按约定时间发货，或卖家延迟发货的，可与卖家协商；协商无果可申请退款，或按平台流程发起维权。若申请退款后卖家又发货，可拒收并按规则处理。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_29",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "6.3 可以要求卖家发指定的快递吗",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "买家可以向卖家提出指定快递的需求，但是否支持由卖家根据实际合作快递情况决定。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_30",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "6.4 没收到货却不小心点了确认收货怎么办",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "尽快联系卖家说明情况并跟进物流；同时注意保存物流与沟通记录，必要时可申请平台介入。未收到货即提前确认收货的，可能影响部分保障服务。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_31",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "6.5 卖家承诺的赠品没收到怎么办",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "先联系卖家核实补发；若卖家不履行承诺，可凭商品页面承诺截图、聊天记录等凭证，按平台流程申请售后或交易纠纷处理。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_32",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "7.1 什么情况下可以申请平台介入",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "当卖家拒绝售后、拖延处理、无法联系、协商无果，或存在商品质量问题、描述不符、少发/错发、发票问题、服务态度等问题时，可按平台流程发起交易纠纷、申请平台介入。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_33",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "7.2 常见的交易纠纷类型",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "包括退货纠纷、换货纠纷、维修纠纷、收货前退款、配送问题、少开/错开/漏开发票、商品错发/漏发、发货问题、商品描述不符、质量问题、运费问题等。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_34",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "7.3 消费者保障赔付的申请期限",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "向平台申请消费者保障赔付，一般需在交易成功之日起 **15 天内**提出，逾期可能不予受理。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_35",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "7.4 消费者保障主要覆盖哪些情形",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "在按平台正常担保交易流程购物的情况下，主要覆盖：\n1. 收到的商品存在质量问题；\n2. 收到的商品与网上描述不符；\n3. 付款后未收到商品。\n平台核实后可按规则先行赔付，以保障买家权益。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_36",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "7.5 哪些交易不在消费者保障范围内",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "未按平台正常担保交易流程完成的交易可能不在保障范围，例如：未收到货即提前确认收货、未及时申请退款导致超时打款等。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_37",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "7.6 什么是假一赔三",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "不同平台和保障服务的赔付条件、金额口径不同。此演示库不提供统一赔偿公式；请联系平台人工客服核验，不承诺具体赔偿金额。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_38",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "7.7 平台先行赔付是什么",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "买家发起的维权申请经平台核实、判定成立后，平台可通知支付机构从卖家账户直接扣除相应款项，先行赔付给买家。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_39",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "8.1 助手可以回答的问题",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "购物流程、七天无理由退换货规则、退款流程与到账、运费险、商品售后政策、发票、发货物流、交易纠纷与平台介入等**通用性规则问题**。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_40",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "8.2 哪些问题需要引导联系人工",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "1. 查询某一具体订单的实时状态、具体退款进度；\n2. 价格协商、砍价、索要额外折扣；\n3. 投诉、复杂客诉、情绪激烈的用户；\n4. 需要对接订单、库存、支付系统才能办理的事项；\n5. 知识库中没有明确依据的问题——不得猜测或编造，应明确告知并引导联系人工客服。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_0_41",
+      "doc_id": "ecommerce_demo_v1_0",
+      "source": "电商客服知识库-演示用.md",
+      "heading": "8.3 助手的回答原则",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "只依据已掌握的平台/店铺规则作答，不编造价格、承诺或政策；规则有平台差异或时效时，提示以商品详情页和平台最新公示为准；回答应简短、口语化，适合语音播报。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_1_0",
+      "doc_id": "ecommerce_demo_v1_1",
+      "source": "电商知识库-3C商品明细1-充电能源类-演示用.md",
+      "heading": "SC-PB05「电卵石」磁吸迷你充电宝 5000mAh",
+      "kind": "product",
+      "sku": "SC-PB05",
+      "aliases": [
+        "SC-PB05",
+        "电卵石"
+      ],
+      "content": "售价：129 元；颜色：曜石黑 / 星河银\n- 电池容量：5000mAh（标称 3.7V，额定能量约 **18.5Wh**）；额定容量：3000mAh（5V2.4A 输出下）\n- 输出：USB-C 20W Max；磁吸无线 15W\n- 输入：USB-C 18W\n- 净重：**128g**；尺寸：**96 × 63 × 11.8mm**\n- 特点：磁吸贴合手机背面、可边充边用、带支架折叠\n- 包装清单：主机、C-C 短线（0.25m）、说明书、保修卡\n- 保修：12 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_1_1",
+      "doc_id": "ecommerce_demo_v1_1",
+      "source": "电商知识库-3C商品明细1-充电能源类-演示用.md",
+      "heading": "SC-PB10「旅行家」自带线充电宝 10000mAh",
+      "kind": "product",
+      "sku": "SC-PB10",
+      "aliases": [
+        "SC-PB10",
+        "旅行家",
+        "SC-PB10L"
+      ],
+      "content": "售价：169 元；颜色：曜石黑 / 珍珠白 / 海军蓝\n- 电池容量：10000mAh（3.7V，约 **37Wh**）；额定容量：6500mAh\n- 输出：USB-C 30W、USB-A 22.5W；自带一根 C 线（另有 L 线版本，型号 SC-PB10L）\n- 输入：USB-C 30W\n- 净重：**215g**；尺寸：**104 × 66 × 25mm**\n- 特点：LED 数显电量百分比、双线可三设备同充\n- 包装：主机、收纳袋、说明书\n- 保修：12 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_1_2",
+      "doc_id": "ecommerce_demo_v1_1",
+      "source": "电商知识库-3C商品明细1-充电能源类-演示用.md",
+      "heading": "SC-PB20「巨无霸」大容量充电宝 20000mAh",
+      "kind": "product",
+      "sku": "SC-PB20",
+      "aliases": [
+        "SC-PB20",
+        "巨无霸"
+      ],
+      "content": "售价：229 元；颜色：曜石黑 / 雪山白\n- 电池容量：20000mAh（3.7V，约 **74Wh**）；额定容量：12000mAh\n- 输出：USB-C **65W**（可充轻薄笔记本）、USB-A ×2（各 22.5W）\n- 输入：USB-C 45W\n- 净重：**415g**；尺寸：**142 × 69 × 28.5mm**\n- 特点：笔记本/手机/耳机同时充、数显功率\n- 包装：主机、C-C 100W 线（1m）、说明书\n- 保修：18 个月\n- 备注：充笔记本需使用支持 65W 的 C-C 线",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_1_3",
+      "doc_id": "ecommerce_demo_v1_1",
+      "source": "电商知识库-3C商品明细1-充电能源类-演示用.md",
+      "heading": "SC-PB27「野营」户外充电宝 27000mAh",
+      "kind": "product",
+      "sku": "SC-PB27",
+      "aliases": [
+        "SC-PB27"
+      ],
+      "content": "售价：329 元；颜色：丛林绿 / 曜石黑\n- 电池容量：27000mAh（3.7V，约 **99.9Wh**）；额定容量：16000mAh\n- 输出：USB-C **100W**、USB-A ×2（22.5W）\n- 净重：**568g**；尺寸：**153 × 80 × 33mm**\n- 特点：LED 露营灯（三档）、IP54 防尘防泼溅、手电筒 SOS\n- 包装：主机、C-C 100W 线、挂绳、说明书\n- 保修：18 个月\n- 携带：演示额定能量99.9Wh；不可托运。是否允许登机还需核验3C标识、召回状态与航司要求，不能凭容量作保证",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_1_4",
+      "doc_id": "ecommerce_demo_v1_1",
+      "source": "电商知识库-3C商品明细1-充电能源类-演示用.md",
+      "heading": "充电宝类常见问题（真实规则）",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "**充电宝能带上飞机吗？** 充电宝不可托运。额定能量限制只是乘机条件之一。中国境内航班还要求清晰的3C标识，无3C标识、标识不清晰及被召回型号或批次禁止携带。演示商品没有真实认证和召回状态，不得根据99.9Wh等参数保证可以登机。出行前核实实物标识、召回信息及航司和机场最新要求。 来源：https://www.caac.gov.cn/XWZX/MHYW/202506/t20250626_227805.html；核对日期：2026-10-09。\n- **电池容量和额定容量有什么区别？** 电池容量是电芯总容量；额定容量是经转换损耗后实际能输出给手机的容量，数字更小属正常。\n- **为什么充不了笔记本？** 需要充电宝 C 口支持 PD 高功率（如 65W）并使用对应 C-C 线，普通 5V 充电宝无法驱动笔记本。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_1_5",
+      "doc_id": "ecommerce_demo_v1_1",
+      "source": "电商知识库-3C商品明细1-充电能源类-演示用.md",
+      "heading": "SC-CG20 20W 迷你氮化镓充电器",
+      "kind": "product",
+      "sku": "SC-CG20",
+      "aliases": [
+        "SC-CG20"
+      ],
+      "content": "售价：79 元；颜色：白 / 黑\n- 接口：USB-C ×1；输出 5V3A / 9V2.22A / 12V1.67A（20W Max）\n- 输入：100–240V 宽电压（可出国使用）\n- 净重：**38g**；尺寸：**28 × 28 × 45mm**；折叠插脚\n- 适用：手机、耳机、平板日常快充\n- 保修：12 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_1_6",
+      "doc_id": "ecommerce_demo_v1_1",
+      "source": "电商知识库-3C商品明细1-充电能源类-演示用.md",
+      "heading": "SC-CG65 65W 双口氮化镓充电器",
+      "kind": "product",
+      "sku": "SC-CG65",
+      "aliases": [
+        "SC-CG65"
+      ],
+      "content": "售价：149 元；颜色：白 / 黑\n- 接口：USB-C ×2；单口 65W，双口同充时 C1 45W + C2 18W（智能分配）\n- 净重：**92g**；尺寸：**52 × 42 × 28mm**；折叠插脚\n- 适用：手机 + 笔记本同时充\n- 包装：主机、说明书\n- 保修：18 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_1_7",
+      "doc_id": "ecommerce_demo_v1_1",
+      "source": "电商知识库-3C商品明细1-充电能源类-演示用.md",
+      "heading": "SC-CG100 100W 四口桌面充电站",
+      "kind": "product",
+      "sku": "SC-CG100",
+      "aliases": [
+        "SC-CG100"
+      ],
+      "content": "售价：299 元；颜色：深空灰\n- 接口：USB-C ×2 + USB-A ×2；单 C 最高 100W，四口总输出 120W\n- 净重：**285g**；机身尺寸：**90 × 55 × 32mm**；电源线长 1.5m\n- 特点：笔记本/平板/手机/耳机一站同充、带功率数显\n- 保修：18 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_1_8",
+      "doc_id": "ecommerce_demo_v1_1",
+      "source": "电商知识库-3C商品明细1-充电能源类-演示用.md",
+      "heading": "充电器类常见问题",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "**氮化镓（GaN）好在哪？** 同功率下体积更小、发热更低、转换效率更高。\n- **多口同时充功率怎么分？** 多设备接入后按设备需求智能分配，单口最大功率会相应降低，属正常现象。\n- **出国能用吗？** 100–240V 宽电压充电器可配合转换插头在多数国家使用，但插脚标准不同需转换头。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_1_9",
+      "doc_id": "ecommerce_demo_v1_1",
+      "source": "电商知识库-3C商品明细1-充电能源类-演示用.md",
+      "heading": "SC-CC100 C-C 100W 编织数据线 1.2m",
+      "kind": "product",
+      "sku": "SC-CC100",
+      "aliases": [
+        "SC-CC100"
+      ],
+      "content": "售价：49 元；颜色：黑 / 灰 / 蓝\n- 接口：USB-C to USB-C；E-Marker 芯片，支持 **100W（20V5A）**、数据传输 480Mbps\n- 线径 3.5mm，尼龙编织、网尾加长\n- 净重：**42g**\n- 保修：18 个月（含正常使用下的接口质保）",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_1_10",
+      "doc_id": "ecommerce_demo_v1_1",
+      "source": "电商知识库-3C商品明细1-充电能源类-演示用.md",
+      "heading": "SC-CL MFi C-L 快充线 1m",
+      "kind": "product",
+      "sku": "SC-CL",
+      "aliases": [
+        "SC-CL"
+      ],
+      "content": "售价：59 元；颜色：白 / 黑\n- 接口：USB-C to Lightning；**MFi 认证**，支持 27W 快充\n- 净重：**38g**；TPE 材质\n- 保修：12 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_1_11",
+      "doc_id": "ecommerce_demo_v1_1",
+      "source": "电商知识库-3C商品明细1-充电能源类-演示用.md",
+      "heading": "SC-WM15 磁吸无线充电器 15W",
+      "kind": "product",
+      "sku": "SC-WM15",
+      "aliases": [
+        "SC-WM15"
+      ],
+      "content": "售价：99 元；颜色：白 / 黑\n- 输出：磁吸无线 15W（兼容 7.5W/10W）；一体式 C 线长 1.2m\n- 净重：**68g**；圆盘直径 58mm、厚 8mm\n- 需搭配 20W 以上充电头使用\n- 保修：12 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_1_12",
+      "doc_id": "ecommerce_demo_v1_1",
+      "source": "电商知识库-3C商品明细1-充电能源类-演示用.md",
+      "heading": "SC-WM3 三合一磁吸无线充支架",
+      "kind": "product",
+      "sku": "SC-WM3",
+      "aliases": [
+        "SC-WM3"
+      ],
+      "content": "售价：199 元；颜色：白 / 黑\n- 输出：手机 15W、智能手表 5W、耳机 5W（三设备同时）\n- 净重：**210g**；折叠尺寸 70 × 70 × 18mm，展开为支架\n- 包装：主机、20W C 口充电头、C-C 线\n- 保修：18 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_1_13",
+      "doc_id": "ecommerce_demo_v1_1",
+      "source": "电商知识库-3C商品明细1-充电能源类-演示用.md",
+      "heading": "线材/无线充类常见问题",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "**为什么线只能慢充？** 高功率需带 E-Marker 的 C-C 线；普通 A-C 或无线材受接口与协议限制。\n- **无线充比有线慢？** 无线充电有转换损耗且易发热，通常功率低于有线，属正常；厚手机壳或金属贴片会影响充电。\n- **MFi 是什么？** 苹果配件的官方认证，未认证的 L 线可能弹窗或不兼容。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_2_0",
+      "doc_id": "ecommerce_demo_v1_2",
+      "source": "电商知识库-3C商品明细2-音频可穿戴类-演示用.md",
+      "heading": "EW-Buds1「轻语」半入耳耳机",
+      "kind": "product",
+      "sku": "EW-Buds1",
+      "aliases": [
+        "EW-Buds1"
+      ],
+      "content": "售价：159 元；颜色：白 / 黑 / 粉\n- 蓝牙 5.3，单/双麦通话降噪\n- 单元：13mm 动圈；编码：SBC / AAC\n- 续航：单次 6 小时，搭配充电盒共 28 小时；C 口充电，充电 10 分钟听 2 小时\n- 重量：**单耳 3.8g，充电盒 32g（整套约 40g）**\n- 充电盒尺寸：58 × 46 × 24mm\n- 防水：IPX4（防汗防泼溅，不可游泳佩戴）\n- 包装：耳机、充电盒、C 线、三对耳帽（半入耳配 S/L 帽）、说明书\n- 保修：12 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_2_1",
+      "doc_id": "ecommerce_demo_v1_2",
+      "source": "电商知识库-3C商品明细2-音频可穿戴类-演示用.md",
+      "heading": "EW-Buds2「静界」主动降噪入耳耳机",
+      "kind": "product",
+      "sku": "EW-Buds2",
+      "aliases": [
+        "EW-Buds2"
+      ],
+      "content": "售价：299 元；颜色：白 / 黑\n- 蓝牙 5.3；**主动降噪最深 42dB**，通透模式\n- 单元：11mm 动圈；双设备同时连接\n- 续航：降噪开单次 5 小时 / 关降噪 7 小时，整套 30 小时；支持无线充电\n- 重量：**单耳 4.6g，充电盒 42g（整套约 51g）**\n- 充电盒尺寸：60 × 48 × 26mm\n- 防水：IPX4\n- 包装：耳机、充电盒、C 线、四对硅胶耳帽（XS/S/M/L）、说明书\n- 保修：12 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_2_2",
+      "doc_id": "ecommerce_demo_v1_2",
+      "source": "电商知识库-3C商品明细2-音频可穿戴类-演示用.md",
+      "heading": "EW-Buds3「跃动」运动挂耳耳机",
+      "kind": "product",
+      "sku": "EW-Buds3",
+      "aliases": [
+        "EW-Buds3",
+        "EW-Buds3HR"
+      ],
+      "content": "售价：229 元；颜色：荧光绿 / 黑\n- 蓝牙 5.3；耳挂式防脱落设计，IP57 防尘防水（可冲洗、可短时浸水，不建议游泳）\n- 续航：单次 9 小时，整套 36 小时\n- 重量：**单耳 6.2g，充电盒 58g（整套约 71g）**\n- 特点：心率/运动语音提示版本（EW-Buds3HR，售价 269）\n- 保修：12 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_2_3",
+      "doc_id": "ecommerce_demo_v1_2",
+      "source": "电商知识库-3C商品明细2-音频可穿戴类-演示用.md",
+      "heading": "EW-Buds4「旗舰」全功能降噪耳机",
+      "kind": "product",
+      "sku": "EW-Buds4",
+      "aliases": [
+        "EW-Buds4"
+      ],
+      "content": "售价：499 元；颜色：钛空灰 / 白\n- 蓝牙 5.4，**降噪最深 48dB**、自适应降噪、空间音频（头部追踪）\n- 单元：圈铁混合（10mm 动圈 + 动铁）；六麦通话\n- 续航：降噪开 8 小时 / 关 11 小时，整套 40 小时；无线充电、双设备连接\n- 重量：**单耳 5.2g，充电盒 48g（整套约 59g）**\n- 充电盒尺寸：64 × 50 × 27mm\n- 防水：IPX4\n- 包装：耳机、充电盒、C 线、五对耳帽、收纳袋、说明书\n- 保修：18 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_2_4",
+      "doc_id": "ecommerce_demo_v1_2",
+      "source": "电商知识库-3C商品明细2-音频可穿戴类-演示用.md",
+      "heading": "TWS 耳机类常见问题",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "**降噪和通透模式区别？** 主动降噪通过麦克风采集并反向声波抵消环境噪声；通透模式放大外界声音，不摘耳机也能听清对话。\n- **IPX4 / IP57 是什么？** IP 后第一位防尘、第二位防水；IPX4 仅防泼溅，IP57 可防尘并短时浸水，**均不代表可游泳或热水淋浴**。\n- **续航为什么和宣传不同？** 降噪开启、高音量都会更耗电；宣传续航一般在关降噪、中等音量下测得。\n- **单耳没声音/连不上？** 将耳机放回盒中重置蓝牙配对，或清除手机配对记录后重新连接。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_2_5",
+      "doc_id": "ecommerce_demo_v1_2",
+      "source": "电商知识库-3C商品明细2-音频可穿戴类-演示用.md",
+      "heading": "EW-Mini1「随身豆」便携音箱",
+      "kind": "product",
+      "sku": "EW-Mini1",
+      "aliases": [
+        "EW-Mini1",
+        "随身豆"
+      ],
+      "content": "售价：129 元；颜色：黑 / 蓝 / 橙\n- 输出功率：5W；蓝牙 5.3，支持插卡（TF）\n- 续航：约 10 小时（50% 音量）；C 口充电\n- 防水：IPX5（可防喷射水花，不可浸泡）\n- 净重：**210g**；尺寸：**直径 82mm、高 45mm**\n- 特点：挂绳、可两台串联组立体声\n- 保修：12 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_2_6",
+      "doc_id": "ecommerce_demo_v1_2",
+      "source": "电商知识库-3C商品明细2-音频可穿戴类-演示用.md",
+      "heading": "EW-Mini2「旷野」户外音箱",
+      "kind": "product",
+      "sku": "EW-Mini2",
+      "aliases": [
+        "EW-Mini2"
+      ],
+      "content": "售价：349 元；颜色：丛林绿 / 黑\n- 输出功率：30W；蓝牙 5.3，两台无线串联\n- 续航：约 16 小时；C 口快充（充电 20 分钟播 3 小时）\n- 防水：IP67（防尘、可短时浸水 1m/30 分钟，不建议游泳时长期浸泡）\n- 净重：**680g**；尺寸：**180 × 75 × 75mm**\n- 特点：内置麦克风免提通话、RGB 灯效\n- 保修：18 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_2_7",
+      "doc_id": "ecommerce_demo_v1_2",
+      "source": "电商知识库-3C商品明细2-音频可穿戴类-演示用.md",
+      "heading": "EW-Mini3「桌面音乐厅」家用音箱",
+      "kind": "product",
+      "sku": "EW-Mini3",
+      "aliases": [
+        "EW-Mini3",
+        "桌面音乐厅"
+      ],
+      "content": "售价：599 元；颜色：深空灰 / 木纹\n- 输出功率：60W（2.1 声道，含独立低音单元）\n- 连接：蓝牙 5.3、AUX、光纤、WiFi 播放在线音乐\n- 续航：需插电使用（无电池）\n- 净重：**2.4kg**；尺寸：**280 × 130 × 150mm**\n- 特点：多设备组网、闹钟/白噪音\n- 保修：18 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_2_8",
+      "doc_id": "ecommerce_demo_v1_2",
+      "source": "电商知识库-3C商品明细2-音频可穿戴类-演示用.md",
+      "heading": "音箱类常见问题",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "**串联怎么用？** 需同型号两台，在 App 或按键中选择立体声/派对串联，不同型号一般不支持。\n- **续航为何变短？** 大音量、低频增强、低温环境都会明显增加耗电。\n- **能边充边用吗？** 多数便携音箱支持边充边播，但长期满电高温会影响电池寿命。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_2_9",
+      "doc_id": "ecommerce_demo_v1_2",
+      "source": "电商知识库-3C商品明细2-音频可穿戴类-演示用.md",
+      "heading": "EW-Watch1「轻薄」智能手表",
+      "kind": "product",
+      "sku": "EW-Watch1",
+      "aliases": [
+        "EW-Watch1"
+      ],
+      "content": "售价：399 元；颜色：黑 / 银 / 粉金\n- 屏幕：1.65 英寸 AMOLED，390 × 450\n- 表体：**42 × 36 × 9.8mm，不含表带 28g**；表带 20mm 可换\n- 防水：**5ATM（可游泳、50m 水深，不建议潜水/跳水）**\n- 功能：心率、血氧、睡眠、120+ 运动模式、消息提醒、NFC 门禁/公交\n- 续航：典型使用 10 天，GPS 连续运动 20 小时\n- 包装：手表、磁吸充电线、2 条表带、说明书\n- 保修：12 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_2_10",
+      "doc_id": "ecommerce_demo_v1_2",
+      "source": "电商知识库-3C商品明细2-音频可穿戴类-演示用.md",
+      "heading": "EW-Watch2「全能」智能手表",
+      "kind": "product",
+      "sku": "EW-Watch2",
+      "aliases": [
+        "EW-Watch2"
+      ],
+      "content": "售价：899 元；颜色：钛灰 / 黑\n- 屏幕：1.9 英寸 AMOLED，466 × 466，常亮显示\n- 表体：**46 × 39 × 11.2mm，不含表带 44g**（钛金属版 38g，售价 1099）\n- 防水：5ATM + IP68\n- 功能：双频 GPS、ECG 心电、血压趋势、独立通话（eSIM 版）、离线支付、地图导航\n- 续航：典型 7 天，智能模式 3 天，GPS 36 小时\n- 包装：手表、磁吸快充线、表带、贴膜、说明书\n- 保修：18 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_2_11",
+      "doc_id": "ecommerce_demo_v1_2",
+      "source": "电商知识库-3C商品明细2-音频可穿戴类-演示用.md",
+      "heading": "EW-Band1「轻环」运动手环",
+      "kind": "product",
+      "sku": "EW-Band1",
+      "aliases": [
+        "EW-Band1"
+      ],
+      "content": "售价：149 元；颜色：黑 / 蓝 / 粉\n- 屏幕：1.47 英寸；表体 **40 × 22 × 9.9mm，重 18g**\n- 防水：5ATM\n- 功能：心率、睡眠、100 运动模式、消息提醒\n- 续航：约 14 天\n- 保修：12 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_2_12",
+      "doc_id": "ecommerce_demo_v1_2",
+      "source": "电商知识库-3C商品明细2-音频可穿戴类-演示用.md",
+      "heading": "手表类常见问题",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "**5ATM 能游泳吗？** 5ATM 相当于 50m 静水压，可用于泳池游泳，但**不可用于跳水、潜水、热水澡、桑拿**（高温和高速水流会破坏密封）。\n- **eSIM 版和蓝牙版区别？** eSIM 可脱离手机独立通话上网，需运营商一号双终端开通；蓝牙版需连接手机。\n- **续航为何缩短？** 常亮屏、高频健康监测、GPS、息屏显示都会增加耗电。\n- **表带尺寸？** 常见 20mm/22mm 快拆表带，购买时按表耳宽度选择。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_2_13",
+      "doc_id": "ecommerce_demo_v1_2",
+      "source": "电商知识库-3C商品明细2-音频可穿戴类-演示用.md",
+      "heading": "EW-Head1「安静时刻」头戴降噪耳机",
+      "kind": "product",
+      "sku": "EW-Head1",
+      "aliases": [
+        "EW-Head1",
+        "安静时刻"
+      ],
+      "content": "售价：599 元；颜色：黑 / 米白\n- 蓝牙 5.3，**主动降噪最深 45dB**，有线 3.5mm 两用\n- 单元：40mm 动圈；续航：降噪开 40 小时 / 关 60 小时；C 口快充（充 10 分钟用 5 小时）\n- 重量：**248g**；折叠收纳，配收纳盒\n- 包装：耳机、C 线、3.5mm 音频线、收纳盒、说明书\n- 保修：18 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_2_14",
+      "doc_id": "ecommerce_demo_v1_2",
+      "source": "电商知识库-3C商品明细2-音频可穿戴类-演示用.md",
+      "heading": "EW-Head2「旗舰录音室」头戴耳机",
+      "kind": "product",
+      "sku": "EW-Head2",
+      "aliases": [
+        "EW-Head2",
+        "旗舰录音室"
+      ],
+      "content": "售价：1099 元；颜色：钛空黑\n- 蓝牙 5.4，自适应混合降噪 50dB、空间音频、多点连接\n- 单元：40mm 钛振膜；续航：降噪开 50 小时\n- 重量：**268g**；蛋白皮耳罩、旋转折叠\n- 包装：耳机、C 线、双 3.5mm 线、航空转接头、硬质收纳箱、说明书\n- 保修：24 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_2_15",
+      "doc_id": "ecommerce_demo_v1_2",
+      "source": "电商知识库-3C商品明细2-音频可穿戴类-演示用.md",
+      "heading": "头戴耳机类常见问题",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "**压头/夹耳？** 新耳机头梁和耳罩较紧，佩戴几天后会变松；长时间使用建议选较轻机型并适时休息。\n- **有线连接还需要电吗？** 普通 3.5mm 被动聆听可不充电，但降噪、耳放功能开启时仍需电量。\n- **能接飞机娱乐系统？** 多数支持 3.5mm，部分需双插头航空转接头（旗舰款随附）。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_3_0",
+      "doc_id": "ecommerce_demo_v1_3",
+      "source": "电商知识库-3C商品明细3-终端外设类-演示用.md",
+      "heading": "SC-Phone1「星核 S1」标准版",
+      "kind": "product",
+      "sku": "SC-Phone1",
+      "aliases": [
+        "SC-Phone1",
+        "星核 S1",
+        "星核S1"
+      ],
+      "content": "售价：2999 元（8+256GB）；另有 12+256GB 3299 / 12+512GB 3699\n- 颜色：曜石黑 / 星河蓝 / 雪域白\n- 屏幕：6.55 英寸 OLED，2400 × 1080，120Hz\n- 机身尺寸：**161 × 74 × 7.9mm，重 189g**\n- 芯片：星核 X1（八核 5G）；系统：StarOS 15（基于安卓）\n- 影像：后置 5000 万主摄 + 1200 万超广角，前置 3200 万\n- 电池：5000mAh，有线 67W / 无线 30W\n- 防水：IP54\n- 包装：手机、67W 充电头、C-C 线、透明壳、说明书、取卡针\n- 保修：主机 12 个月（电池 6 个月）",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_3_1",
+      "doc_id": "ecommerce_demo_v1_3",
+      "source": "电商知识库-3C商品明细3-终端外设类-演示用.md",
+      "heading": "SC-Phone2「星核 S1 Pro」旗舰",
+      "kind": "product",
+      "sku": "SC-Phone2",
+      "aliases": [
+        "SC-Phone2",
+        "星核 S1 Pro",
+        "星核S1Pro",
+        "S1Pro"
+      ],
+      "content": "售价：4999 元（12+256GB）；16+512GB 5499 / 16+1TB 5999\n- 颜色：钛空灰 / 冰川蓝 / 曜石黑\n- 屏幕：6.78 英寸 OLED 2K，3200 × 1440，120Hz LTPO，峰值亮度 3000nit\n- 机身尺寸：**163 × 75.5 × 8.3mm，重 212g**（素皮版 205g）\n- 芯片：星核 X1 Pro；卫星通信支持（仅消息）\n- 影像：后置 1 亿主摄（OIS）+ 5000 万超广角 + 4800 万 3.5 倍长焦（OIS），前置 3200 万\n- 电池：5400mAh，有线 100W / 无线 50W / 反向充 10W\n- 防水：**IP68（1.5m 清水 30 分钟，非防水手机进水不保修）**\n- 包装：手机、100W 充电头、C-C 线、清水壳、说明书\n- 保修：主机 12 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_3_2",
+      "doc_id": "ecommerce_demo_v1_3",
+      "source": "电商知识库-3C商品明细3-终端外设类-演示用.md",
+      "heading": "SC-Phone3「星核 S1 mini」轻薄小屏",
+      "kind": "product",
+      "sku": "SC-Phone3",
+      "aliases": [
+        "SC-Phone3",
+        "星核 S1 mini",
+        "星核S1mini",
+        "S1mini"
+      ],
+      "content": "售价：2499 元（8+256GB）\n- 颜色：樱粉 / 雾蓝 / 黑\n- 屏幕：6.1 英寸 OLED，2400 × 1080，120Hz\n- 机身尺寸：**146 × 70 × 7.4mm，重 158g**\n- 芯片：星核 X1\n- 影像：5000 万主摄（OIS）+ 超广角\n- 电池：4300mAh，有线 45W\n- 防水：IP54\n- 特点：小屏单手操作、轻薄\n- 保修：12 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_3_3",
+      "doc_id": "ecommerce_demo_v1_3",
+      "source": "电商知识库-3C商品明细3-终端外设类-演示用.md",
+      "heading": "手机类常见问题",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "**IP68 可以带着洗澡/游泳吗？** IP68 仅保证实验室清水条件短时浸泡，**不防热水、海水、水蒸气，且人为进水不在保修范围**，不建议洗澡或游泳使用。\n- **不同版本怎么选？** 运存影响多任务与流畅年限，存储影响照片/应用容量；长期使用建议至少 12+256GB。\n- **充电头是否随附？** 本系列均随附对应功率充电头；若使用第三方头需支持同协议才能满速。\n- **双卡/内存扩展？** 支持双 Nano-SIM（部分版本一卡一存），不支持存储卡扩展，建议按容量一步到位。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_3_4",
+      "doc_id": "ecommerce_demo_v1_3",
+      "source": "电商知识库-3C商品明细3-终端外设类-演示用.md",
+      "heading": "SC-Tab1「星核 Pad」标准平板",
+      "kind": "product",
+      "sku": "SC-Tab1",
+      "aliases": [
+        "SC-Tab1",
+        "星核 Pad"
+      ],
+      "content": "售价：2199 元（8+256GB，11 英寸）；12+512GB 2599\n- 颜色：深空灰 / 银\n- 屏幕：11 英寸 LCD，2560 × 1600，120Hz\n- 机身尺寸：**250 × 162 × 6.9mm，重 480g**\n- 芯片：星核 X1；四扬声器\n- 电池：8200mAh，33W 充电，本地视频播放约 14 小时\n- 配件：支持触控笔（SC-Pencil，另购 399）、磁吸键盘（另购 499）\n- 包装：平板、33W 头、C 线、说明书\n- 保修：12 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_3_5",
+      "doc_id": "ecommerce_demo_v1_3",
+      "source": "电商知识库-3C商品明细3-终端外设类-演示用.md",
+      "heading": "SC-Tab2「星核 Pad Pro」旗舰平板",
+      "kind": "product",
+      "sku": "SC-Tab2",
+      "aliases": [
+        "SC-Tab2",
+        "星核 Pad Pro",
+        "星核PadPro",
+        "PadPro"
+      ],
+      "content": "售价：4999 元（12+256GB，12.4 英寸）；16+1TB 6299\n- 颜色：钛空灰 / 银\n- 屏幕：12.4 英寸 OLED 2.8K，3048 × 2032，120Hz\n- 机身尺寸：**281 × 185 × 5.9mm，重 585g**（键盘另加 380g）\n- 芯片：星核 X1 Pro；六扬声器、面部识别\n- 电池：10000mAh，67W 快充，视频约 13 小时\n- 配件：随包装附赠 SC-Pencil Pro；磁吸键盘另购\n- 保修：18 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_3_6",
+      "doc_id": "ecommerce_demo_v1_3",
+      "source": "电商知识库-3C商品明细3-终端外设类-演示用.md",
+      "heading": "平板类常见问题",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "**能当电脑用吗？** 搭配键盘笔可满足文档、笔记、轻办公；专业桌面软件受系统生态限制，建议按需求选择。\n- **笔和键盘是否通用？** 同系列通用，跨代或不同尺寸磁吸/充电方式可能不同，购买前核对兼容型号。\n- **选 11 还是 12.4？** 11 更轻便携，12.4 屏幕大、适合分屏办公与绘画。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_3_7",
+      "doc_id": "ecommerce_demo_v1_3",
+      "source": "电商知识库-3C商品明细3-终端外设类-演示用.md",
+      "heading": "SC-KB1 机械键盘（87 键无线三模）",
+      "kind": "product",
+      "sku": "SC-KB1",
+      "aliases": [
+        "SC-KB1"
+      ],
+      "content": "售价：299 元；颜色：黑 / 白 / 灰\n- 配列：87 键（紧凑 TKL）；轴体：红轴/茶轴可选（热插拔）\n- 连接：蓝牙 5.1（3 设备）+ 2.4G + C 有线\n- 键帽：PBT 双色注塑；键线分离\n- 电池：4000mAh，关灯约 30 天（背光开约 1 周）\n- 净重：**820g**；尺寸：**355 × 135 × 38mm**\n- 包装：键盘、2.4G 接收器、C 线、拔键/拔轴器、说明书\n- 保修：18 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_3_8",
+      "doc_id": "ecommerce_demo_v1_3",
+      "source": "电商知识库-3C商品明细3-终端外设类-演示用.md",
+      "heading": "SC-MS1 无线轻量化鼠标",
+      "kind": "product",
+      "sku": "SC-MS1",
+      "aliases": [
+        "SC-MS1"
+      ],
+      "content": "售价：179 元；颜色：黑 / 白\n- 传感器：最高 12000 DPI（6 档可调），回报率 1000Hz\n- 连接：2.4G + 蓝牙 + C 有线；支持充电\n- 净重：**68g**；尺寸：**118 × 62 × 39mm**\n- 续航：2.4G 约 70 小时（关灯）\n- 保修：12 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_3_9",
+      "doc_id": "ecommerce_demo_v1_3",
+      "source": "电商知识库-3C商品明细3-终端外设类-演示用.md",
+      "heading": "SC-KM1 无线键鼠套装（办公）",
+      "kind": "product",
+      "sku": "SC-KM1",
+      "aliases": [
+        "SC-KM1"
+      ],
+      "content": "售价：149 元；颜色：黑 / 白\n- 键盘：104 键全尺寸巧克力键帽，静音设计；鼠标：1600 DPI\n- 连接：共用一个 2.4G 接收器；键盘 2 节 AAA（约 12 个月）、鼠标 1 节 AA（约 6 个月）\n- 净重：键盘 **480g**（438 × 138 × 22mm）、鼠标 72g\n- 保修：12 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_3_10",
+      "doc_id": "ecommerce_demo_v1_3",
+      "source": "电商知识库-3C商品明细3-终端外设类-演示用.md",
+      "heading": "键鼠类常见问题",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "**红轴/茶轴怎么选？** 红轴直上直下、声音小，适合办公与游戏；茶轴有轻微段落感、反馈明确，适合打字。\n- **三模怎么切设备？** 用快捷键在蓝牙 1/2/3 与 2.4G 间切换，配对后可记忆多设备。\n- **鼠标漂移/丢帧？** 检查电量、接收器距离与鼠标垫，关闭多余 DPI 软件；玻璃/反光桌面需配鼠标垫。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_3_11",
+      "doc_id": "ecommerce_demo_v1_3",
+      "source": "电商知识库-3C商品明细3-终端外设类-演示用.md",
+      "heading": "SC-SSD1 移动固态硬盘（PSSD）",
+      "kind": "product",
+      "sku": "SC-SSD1",
+      "aliases": [
+        "SC-SSD1"
+      ],
+      "content": "售价：1TB 599 元；2TB 899 元；512GB 399 元\n- 读取最高 1050MB/s、写入 1000MB/s（USB 3.2 Gen2，随电脑接口而异）\n- 接口：USB-C（附 C-A 转接头）\n- 净重：**46g**；尺寸：**85 × 42 × 9mm**\n- 特点：金属散热、兼容手机/平板/相机、支持加密\n- 包装：硬盘、C-C 线、C-A 头、收纳袋、说明书\n- 保修：5 年（有限质保）",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_3_12",
+      "doc_id": "ecommerce_demo_v1_3",
+      "source": "电商知识库-3C商品明细3-终端外设类-演示用.md",
+      "heading": "SC-U1 高速 U 盘",
+      "kind": "product",
+      "sku": "SC-U1",
+      "aliases": [
+        "SC-U1"
+      ],
+      "content": "售价：128GB 89 元；256GB 139 元；512GB 249 元\n- 读取最高 400MB/s（USB 3.2，双接口 C+A 可直连手机）\n- 净重：**12g**；尺寸：**52 × 16 × 7mm**\n- 保修：5 年",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_3_13",
+      "doc_id": "ecommerce_demo_v1_3",
+      "source": "电商知识库-3C商品明细3-终端外设类-演示用.md",
+      "heading": "移动存储类常见问题",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "**速度达不到标称？** 需主板/线材支持 USB 3.2 Gen2，接 USB2.0 或劣质线会大幅降速；大文件持续写入发热后也会降速。\n- **能给手机扩容吗？** 双接口/支持 OTG 的 C 口盘可直连安卓手机/平板，iPhone 需对应接口或转接头。\n- **数据安全？** 重要数据建议多盘/云端备份，闪存损坏数据恢复困难；可启用硬件/软件加密。",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_3_14",
+      "doc_id": "ecommerce_demo_v1_3",
+      "source": "电商知识库-3C商品明细3-终端外设类-演示用.md",
+      "heading": "SC-Dock1 十合一 Type-C 扩展坞",
+      "kind": "product",
+      "sku": "SC-Dock1",
+      "aliases": [
+        "SC-Dock1"
+      ],
+      "content": "售价：269 元；颜色：深空灰\n- 接口：HDMI 4K@60Hz ×1、HDMI 4K@30Hz ×1、USB-C PD 100W 供电、USB-A 3.0 ×3、千兆网口 RJ45、SD/TF 读卡\n- 净重：**138g**；尺寸：**120 × 55 × 16mm**；一体 C 线 180mm\n- 特点：双屏扩展（部分系统仅支持镜像）、PD 直通充电\n- 包装：扩展坞、收纳袋、说明书\n- 保修：18 个月",
+      "demo": true
+    },
+    {
+      "id": "ecommerce_demo_v1_3_15",
+      "doc_id": "ecommerce_demo_v1_3",
+      "source": "电商知识库-3C商品明细3-终端外设类-演示用.md",
+      "heading": "扩展坞类常见问题",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "**接上不供电/不显示？** 先把 PD 充电头接扩展坞供电口；部分轻薄本需原装或高功率充电器。\n- **双 HDMI 能双屏扩展吗？** Windows 多数支持双屏异显；部分系统（如部分平板/手机）仅支持同屏镜像，购买前核对机型。\n- **网口/读卡无反应？** 首次使用部分系统需自动安装驱动；检查设备是否已被识别。",
+      "demo": true
+    },
+    {
+      "id": "aviation_review",
+      "doc_id": "ecommerce_demo_v1_1",
+      "source": "电商知识库-3C商品明细1-充电能源类-演示用.md",
+      "heading": "充电宝乘机条件核验",
+      "kind": "rule",
+      "sku": "",
+      "aliases": [],
+      "content": "充电宝不可托运。额定能量限制只是乘机条件之一。中国境内航班还要求清晰的3C标识，无3C标识、标识不清晰及被召回型号或批次禁止携带。演示商品没有真实认证和召回状态，不得根据99.9Wh等参数保证可以登机。出行前核实实物标识、召回信息及航司和机场最新要求。\n来源：https://www.caac.gov.cn/XWZX/MHYW/202506/t20250626_227805.html；核对日期：2026-10-09。",
+      "demo": true
+    }
+  ]
+}
