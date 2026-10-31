@@ -76,3 +76,7 @@ Thumbs.db
 *.key
 *.pfx
 *.p12
+
+# Duplicate local screenshots; publish docs/assets instead
+/1.png
+/2.png

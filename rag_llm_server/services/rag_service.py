@@ -1,5 +1,6 @@
 import json
 import re
+import unicodedata
 import logging
 import time
 from functools import lru_cache
@@ -47,7 +48,10 @@ class RagService:
         normalized = normalize(query)
         products = [x for x in data['chunks'] if x['kind'] == 'product']
         aliases = {normalize(alias) for x in products for alias in x['aliases']}
-        explicit = re.findall(r'(?:sc|ew)[a-z]+\d+[a-z]*', normalized)
+        # Preserve token boundaries so capacity (SSD1 1TB / U1 128G) is not part of the SKU.
+        explicit = [normalize(x) for x in re.findall(
+            r'(?:sc|ew)[\s-]*[a-z]+[\s-]*\d+[a-z]*',
+            unicodedata.normalize('NFKC', query).lower())]
         if any(x not in aliases for x in explicit):
             return self.result(query, [], 'unknown_sku')
         matched = [x for x in products if any(normalize(a) in normalized for a in x['aliases'] if len(a) >= 3)]

@@ -1,5 +1,7 @@
 # 🎙️ Voice Commerce Assistant
 
+
+
 <div align="center">
 
 **3C 电商实时语音客服 · 让每一次咨询都有据可依**
@@ -13,9 +15,11 @@ React · 火山 RTC · FastAPI · RAG · 豆包流式生成
 
 [快速开始](#快速开始) · [真实语音](#真实语音接入) · [接口示例](#接口示例) · [文档说明](docs/DOCUMENTATION.md) · [参与贡献](CONTRIBUTING.md)
 
-![项目演示图片占位](docs/assets/preview.svg)
 
-*图片为占位图，可替换为脱敏后的桌面通话截图或移动端截图。*
+
+![演示首页](docs/assets/demo-home.png)
+
+![语音对话演示](docs/assets/demo-conversation.png)
 
 </div>
 
@@ -49,7 +53,7 @@ React · 火山 RTC · FastAPI · RAG · 豆包流式生成
 - **可追溯回答**：检索返回来源、章节、版本与检索模式，方便解释和调试。
 - **能力边界**：未知型号或无证据问题澄清/拒答；订单和支付等未接入事项直接说明。
 - **流式回调**：OpenAI 风格 SSE，支持首帧刷新、Bearer 鉴权、结束帧与错误兜底。
-- **复现检查**：前后端自动测试、27 题回归集与 GitHub Actions 检查流程。
+- **复现检查**：前后端自动测试、147 题回归集与 GitHub Actions 检查流程。
 
 ## 架构与数据流
 
@@ -214,7 +218,7 @@ curl -N http://127.0.0.1:3001/api/chat_callback \
 │   ├── knowledge/          # 演示 Markdown 与本地知识单元
 │   ├── .env.example        # 无密钥配置模板
 │   └── voice_config.example.json
-├── reproduction/          # 27 题评测集
+├── reproduction/          # 147 题评测集（保留 v1 的 27 题）
 ├── scripts/                # 公网回调网关
 ├── Server/                 # 上游 Node 控制面参考
 ├── server_python/          # 早期 Python 控制面参考
@@ -236,16 +240,18 @@ npm test -- --watchAll=false --runInBand
 npm run build
 
 # rag_llm_server 目录，已激活虚拟环境
-python -m unittest test_reproduction test_commerce -v
+python -m unittest test_reproduction test_commerce test_evaluate_commerce -v
 python evaluate_commerce.py
 
 # 真实云知识库 + Ark 检查，会产生 API 费用
 # 要求 KB_MODE=cloud / MOCK_MODE=false
-python evaluate_commerce.py --live
-python evaluate_commerce.py --live --ids 11 18 19
+python evaluate_commerce.py --live --cases reproduction/ecommerce_cases_v2.json
+python evaluate_commerce.py --live --cases reproduction/ecommerce_cases_v2.json --ids 11 18 19
 ```
 
-结果写入根目录 `.runtime/`。模拟回归检查资料覆盖与规则路径；真实回归检查预设关键词，均不能代表完整事实准确率。语音识别、插话、首音延迟与持续通话需要浏览器人工验收。
+默认用例 `reproduction/ecommerce_cases.json` 已扩充到 147 题，与 `ecommerce_cases_v2.json` 一致；旧的 27 题保存在 `ecommerce_cases_v1.json`，可用 `--cases reproduction/ecommerce_cases_v1.json` 对照历史。`--cases` 支持绝对路径、当前目录相对路径或仓库根目录相对路径。`expect` 每项必须匹配，`reject` 任一项匹配即失败；结果分别记录 `missing_checks` 与 `violated_checks`。新增用例是评测集扩充，知识库正文仍为四份已审核演示资料。
+
+结果写入根目录 `.runtime/`。报告包含用例文件 SHA-256、运行时间和所选 ID；重复运行时，旧报告自动加 UTC 时间戳归档。全量与 `--ids` 子集结果独立保存，不能拼接成同一轮通过数。模拟回归检查资料覆盖与规则路径；真实回归检查预设关键词，均不能代表完整事实准确率。语音识别、插话、首音延迟与持续通话需要浏览器人工验收。
 
 ## 常见问题
 
@@ -291,3 +297,5 @@ python evaluate_commerce.py --live --ids 11 18 19
 采用 [BSD-3-Clause](LICENSE)。前端及 RTC 控制示例基于火山引擎 RTC AIGC Demo，保留上游版权；WebRTC 等归属见 [第三方声明](THIRD_PARTY_NOTICES)。原始说明见 [上游 README](docs/UPSTREAM_README.md)。云服务及 SDK 另受各自条款约束。
 
 感谢火山引擎、React、FastAPI 和相关开源项目。
+
+2026-10-31 本地模拟关键词回归为 136/147，通过率不代表真实模型事实准确率；详见[本次验证记录](docs/VALIDATION.md)。

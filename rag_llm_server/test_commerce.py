@@ -25,6 +25,16 @@ class CommerceTests(unittest.IsolatedAsyncioTestCase):
         context = (await rag_service.search('EW-Watch2能游泳吗'))['context']
         self.assertIn('游泳', context)
 
+    async def test_capacity_tokens_do_not_turn_known_skus_into_unknown_models(self):
+        for sku, capacity, price in (('SC-SSD1', '1TB', '599'), ('SC-U1', '128G', '256')):
+            messages = [{'role': 'user', 'content': f'{sku} {capacity} 多少钱？'},
+                        {'role': 'assistant', 'content': '演示价格。'},
+                        {'role': 'user', 'content': '刚才说的还有别的容量吗？'}]
+            result = await rag_service.search(retrieval_query(messages))
+            self.assertEqual(result['retrieval_mode'], 'catalog_exact')
+            self.assertIn(price, result['context'])
+        self.assertEqual((await rag_service.search('SC-SSD11 1TB 多重'))['retrieval_mode'], 'unknown_sku')
+
     async def test_cloud_old_course_excluded_and_provenance_kept(self):
         response = {'result_list': [
             {'id': 'old', 'doc_info': {'doc_id': 'course_reproduction_demo_20261009'}, 'content': '退货课程'},
