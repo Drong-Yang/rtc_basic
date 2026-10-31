@@ -1,10 +1,8 @@
-# 🎙️ Voice Commerce Assistant
-
-
+# 3C 数码电商智能导购与售后语音助手
 
 <div align="center">
 
-**3C 电商实时语音客服 · 让每一次咨询都有据可依**
+**RAG 分路检索 × 实时语音对话**
 
 React · 火山 RTC · FastAPI · RAG · 豆包流式生成
 
@@ -13,9 +11,7 @@ React · 火山 RTC · FastAPI · RAG · 豆包流式生成
 [![Python](https://img.shields.io/badge/Python-3.13-3776ab?logo=python&logoColor=white)](rag_llm_server/pyproject.toml)
 [![TypeScript](https://img.shields.io/badge/TypeScript-4.7-3178c6?logo=typescript&logoColor=white)](tsconfig.json)
 
-[快速开始](#快速开始) · [真实语音](#真实语音接入) · [接口示例](#接口示例) · [文档说明](docs/DOCUMENTATION.md) · [参与贡献](CONTRIBUTING.md)
-
-
+[快速开始](#快速开始) · [真实语音](#真实语音接入) · [接口示例](#接口示例)
 
 ![演示首页](docs/assets/demo-home.png)
 
@@ -36,12 +32,10 @@ React · 火山 RTC · FastAPI · RAG · 豆包流式生成
 - [目录结构](#目录结构)
 - [测试与评测](#测试与评测)
 - [常见问题](#常见问题)
-- [文档与贡献](#文档与贡献)
-- [开源许可与致谢](#开源许可与致谢)
 
 ## 项目介绍
 
-一个面向 3C 商品咨询的实时语音助手。用户可以询问商品重量、容量、充电功率与兼容性，也可以继续追问退货、运费和发票规则。
+基于 FastAPI + 火山方舟豆包 + 火山知识库 + RTC 的 3C 数码端到端语音导购系统，覆盖售前选型与售后政策问答；支持分路检索、证据不足即拒答、可打断的实时语音对话。
 
 项目基于火山引擎 RTC AIGC 示例改造前端，自建 FastAPI 服务提供 RTC 控制、RAG 检索和 CustomLLM 流式回调。准确型号优先匹配本地商品资料，通用规则可使用云知识库；资料不足时明确说明，避免把相似型号的参数混用。
 
@@ -222,9 +216,8 @@ curl -N http://127.0.0.1:3001/api/chat_callback \
 ├── scripts/                # 公网回调网关
 ├── Server/                 # 上游 Node 控制面参考
 ├── server_python/          # 早期 Python 控制面参考
-├── docs/                   # 部署、维护、图片占位与上游说明
+├── docs/                   # 部署配置、验证记录与上游说明
 ├── .github/workflows/      # GitHub Actions 检查
-├── CONTRIBUTING.md
 ├── SECURITY.md
 ├── THIRD_PARTY_NOTICES
 └── LICENSE
@@ -252,6 +245,8 @@ python evaluate_commerce.py --live --cases reproduction/ecommerce_cases_v2.json 
 默认用例 `reproduction/ecommerce_cases.json` 已扩充到 147 题，与 `ecommerce_cases_v2.json` 一致；旧的 27 题保存在 `ecommerce_cases_v1.json`，可用 `--cases reproduction/ecommerce_cases_v1.json` 对照历史。`--cases` 支持绝对路径、当前目录相对路径或仓库根目录相对路径。`expect` 每项必须匹配，`reject` 任一项匹配即失败；结果分别记录 `missing_checks` 与 `violated_checks`。新增用例是评测集扩充，知识库正文仍为四份已审核演示资料。
 
 结果写入根目录 `.runtime/`。报告包含用例文件 SHA-256、运行时间和所选 ID；重复运行时，旧报告自动加 UTC 时间戳归档。全量与 `--ids` 子集结果独立保存，不能拼接成同一轮通过数。模拟回归检查资料覆盖与规则路径；真实回归检查预设关键词，均不能代表完整事实准确率。语音识别、插话、首音延迟与持续通话需要浏览器人工验收。
+
+2026-10-31 本地模拟关键词回归为 136/147，通过率不代表真实模型事实准确率；详见[本次验证记录](docs/VALIDATION.md)。
 
 ## 常见问题
 
@@ -283,19 +278,4 @@ python evaluate_commerce.py --live --cases reproduction/ecommerce_cases_v2.json 
 
 </details>
 
-## 文档与贡献
-
-- [部署与配置](docs/DEPLOYMENT.md)：服务凭据、公网回调与云知识库。
-- [文档使用与维护](docs/DOCUMENTATION.md)：截图替换、Markdown 写法与日常更新。
-- [手动发布指南](docs/PUBLISHING.md)：GitHub Desktop 发布与安全上传包。
-- [贡献指南](CONTRIBUTING.md) 与 [安全说明](SECURITY.md)。
-
-欢迎使用 Issue 提供脱敏复现步骤，通过 Pull Request 改进项目。
-
-## 开源许可与致谢
-
-采用 [BSD-3-Clause](LICENSE)。前端及 RTC 控制示例基于火山引擎 RTC AIGC Demo，保留上游版权；WebRTC 等归属见 [第三方声明](THIRD_PARTY_NOTICES)。原始说明见 [上游 README](docs/UPSTREAM_README.md)。云服务及 SDK 另受各自条款约束。
-
-感谢火山引擎、React、FastAPI 和相关开源项目。
-
-2026-10-31 本地模拟关键词回归为 136/147，通过率不代表真实模型事实准确率；详见[本次验证记录](docs/VALIDATION.md)。
+前端及 RTC 控制示例基于火山引擎 RTC AIGC Demo 改造，保留原有 [BSD-3-Clause 许可](LICENSE)与[第三方声明](THIRD_PARTY_NOTICES)。
