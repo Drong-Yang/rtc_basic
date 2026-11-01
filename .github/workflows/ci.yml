@@ -14,7 +14,7 @@ jobs:
         with:
           python-version: '3.13'
       - run: python -m pip install -r requirements.txt
-      - run: python -m unittest test_reproduction test_commerce test_evaluate_commerce -v
+      - run: python -m unittest test_reproduction test_commerce test_evaluate_commerce test_milvus -v
       - run: python evaluate_commerce.py
   frontend:
     runs-on: ubuntu-latest

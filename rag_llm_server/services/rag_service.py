@@ -8,6 +8,7 @@ import httpx
 from config import settings, ROOT
 from services.utils import Signer
 from services.commerce import normalize
+from services.milvus_service import milvus_service
 logger = logging.getLogger('uvicorn.error')
 
 
@@ -44,6 +45,8 @@ async def knowledge_request(path, body):
 
 class RagService:
     async def search(self, query):
+        if settings.KB_MODE not in ('sample', 'cloud', 'milvus'):
+            raise ValueError('KB_MODE 必须为 sample、cloud 或 milvus')
         data = corpus()
         normalized = normalize(query)
         products = [x for x in data['chunks'] if x['kind'] == 'product']
@@ -73,6 +76,12 @@ class RagService:
                 matched += [x for x in data['chunks'] if x['id'] == 'aviation_review']
             if not policy_question:
                 return self.result(query, matched[:5], 'catalog_exact')
+        if settings.KB_MODE == 'milvus':
+            # Semantic queries must not be rejected by a lexical-overlap prefilter.
+            hits = await milvus_service.search(query.rsplit('；追问：', 1)[-1], data)
+            combined = {x['id']: x for x in matched + hits}
+            return self.result(query, list(combined.values())[:5] if hits else [],
+                               'milvus' if hits else 'no_results')
         ranked = sorted(data['chunks'], key=lambda x: relevance(query, x['heading'] + x['content']), reverse=True)
         ranked = [x for x in ranked if relevance(query, x['heading'] + x['content']) >= 2]
         if not ranked:

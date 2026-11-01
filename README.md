@@ -2,16 +2,16 @@
 
 <div align="center">
 
-**RAG 分路检索 × 实时语音对话**
+**RAG 分路检索 × Milvus 语义检索 × 实时语音对话**
 
-React · 火山 RTC · FastAPI · RAG · 豆包流式生成
+React · 火山 RTC · FastAPI · Milvus · 豆包流式生成
 
 [![License](https://img.shields.io/badge/License-BSD--3--Clause-blue.svg)](LICENSE)
 [![React](https://img.shields.io/badge/React-18-61dafb?logo=react&logoColor=white)](package.json)
 [![Python](https://img.shields.io/badge/Python-3.13-3776ab?logo=python&logoColor=white)](rag_llm_server/pyproject.toml)
 [![TypeScript](https://img.shields.io/badge/TypeScript-4.7-3178c6?logo=typescript&logoColor=white)](tsconfig.json)
 
-[快速开始](#快速开始) · [真实语音](#真实语音接入) · [接口示例](#接口示例)
+[快速开始](#快速开始) · [Milvus 接入](#milvus-接入) · [真实语音](#真实语音接入) · [接口示例](#接口示例)
 
 ![演示首页](docs/assets/demo-home.png)
 
@@ -27,6 +27,7 @@ React · 火山 RTC · FastAPI · RAG · 豆包流式生成
 - [核心能力](#核心能力)
 - [架构与数据流](#架构与数据流)
 - [快速开始](#快速开始)
+- [Milvus 接入](#milvus-接入)
 - [真实语音接入](#真实语音接入)
 - [接口示例](#接口示例)
 - [目录结构](#目录结构)
@@ -35,14 +36,15 @@ React · 火山 RTC · FastAPI · RAG · 豆包流式生成
 
 ## 项目介绍
 
-基于 FastAPI + 火山方舟豆包 + 火山知识库 + RTC 的 3C 数码端到端语音导购系统，覆盖售前选型与售后政策问答；支持分路检索、证据不足即拒答、可打断的实时语音对话。
+基于 FastAPI + Milvus + 火山方舟豆包 + RTC 的 3C 数码端到端语音导购系统，覆盖售前选型与售后政策问答；支持分路检索、证据不足即拒答、可打断的实时语音对话。
 
-项目基于火山引擎 RTC AIGC 示例改造前端，自建 FastAPI 服务提供 RTC 控制、RAG 检索和 CustomLLM 流式回调。准确型号优先匹配本地商品资料，通用规则可使用云知识库；资料不足时明确说明，避免把相似型号的参数混用。
+项目基于火山引擎 RTC AIGC 示例改造前端，自建 FastAPI 服务提供 RTC 控制、RAG 检索和 CustomLLM 流式回调。准确型号优先匹配本地商品资料，通用规则使用 Milvus 语义检索，也保留云知识库模式；资料不足时明确说明，避免把相似型号的参数混用。
 
 ## 核心能力
 
 - **实时语音**：托管 ASR/TTS 与 RTC，支持语音打断、挂断重连、字幕和输入音量展示。
-- **混合检索**：4 份演示文档、34 个演示 SKU、89 个本地知识单元，区分精确型号与通用规则。
+- **分路检索**：4 份演示文档、34 个演示 SKU、89 个本地知识单元，区分精确型号与通用规则。
+- **Milvus 入库与检索**：云端 Embedding 生成2048维向量，COSINE/FLAT索引；以语料哈希及模型配置指纹限定查询范围，稳定主键支持幂等 upsert。
 - **多轮追问**：利用请求中的用户历史解析“那尺寸呢”，不将助手输出当作已确认事实。
 - **可追溯回答**：检索返回来源、章节、版本与检索模式，方便解释和调试。
 - **能力边界**：未知型号或无证据问题澄清/拒答；订单和支付等未接入事项直接说明。
@@ -61,16 +63,19 @@ flowchart LR
     G --> B[CustomLLM / SSE]
     B --> Q[型号与上下文路由]
     Q --> L[本地商品知识]
-    Q --> K[云端规则知识库]
+    Q --> E[云端 Embedding]
+    E --> V[Milvus COSINE / FLAT]
+    Q --> K[可选云端规则知识库]
     Q --> D[能力边界 / 缺证据答复]
     L --> M[豆包 / Ark]
+    V --> M
     K --> M
     M --> B
     D --> B
     B --> R
 ```
 
-ASR、TTS 和 RTC 由云服务提供。中文双字重合筛选是轻量相关性启发式，不是训练过的重排模型。会话保存在单个进程中，没有跨会话长期记忆。
+Embedding、生成、ASR、TTS 和 RTC 使用云服务，Milvus 运行于本地服务。Milvus 路径校验来源、版本、正文和分数，不经过字面重合前置筛选；sample/cloud 路径保留字面相关性启发式。未接入稀疏融合或训练过的重排模型。会话保存在单个进程中，没有跨会话长期记忆。
 
 ## 快速开始
 
@@ -133,6 +138,35 @@ npm run dev
 
 打开 `http://localhost:3000`。前端默认连接当前主机的 3001 端口；尚未配置 RTC 时，获取通话场景会提示配置缺失。
 
+## Milvus 接入
+
+Milvus模式需要运行中的Milvus Server；本项目已在2.4.4 REST v2上验证。使用独立集合。在后端 `.env` 设置，并保留自己的Ark凭据：
+
+```dotenv
+KB_MODE=milvus
+MILVUS_URI=http://127.0.0.1:19530
+MILVUS_DATABASE=default
+MILVUS_COLLECTION=voice_commerce_v1
+MILVUS_MIN_SCORE=0.45
+EMBEDDING_MODEL=doubao-embedding-vision-251215
+EMBEDDING_API_PATH=/embeddings/multimodal
+EMBEDDING_DIMENSIONS=2048
+```
+
+`EMBEDDING_API_KEY` 为空时复用 `ARK_API_KEY`，模型须在自己的账户开通。在后端目录激活环境后执行：
+
+```bash
+python sync_milvus.py
+python sync_milvus.py --check
+python main.py
+```
+
+首次导入会调用真实Embedding；相同语料和模型已有89条有效记录时跳过重复向量化。知识更新需同步更新 `knowledge/corpus.json`、重新导入并重启后端；模型或维度改变时建议使用新集合。脚本不删除旧集合和旧版本。
+
+`/debug/knowledge` 展示集合、模型、维度和当前版本记录数；`/debug/rag` 展示检索模式、来源及分数。可选Attu管理页面：在仓库根目录执行 `docker compose -f deploy/compose.attu.yaml up -d`，访问 <http://localhost:8081>。默认通过 `host.docker.internal:19530` 连接已有Milvus，可用 `ATTU_MILVUS_ADDRESS` 覆盖。
+
+配置、原理与排障见 [Milvus指南](docs/MILVUS.md)。
+
 ## 真实语音接入
 
 在 `rag_llm_server/.env` 填写自己的凭据：
@@ -158,7 +192,7 @@ MOCK_MODE=false
 
 `KB_MODE=sample` 使用本地资料，仍可连接真实模型与语音。云端规则检索需要 `KB_MODE=cloud`、账户 ID 和集合信息，见 [部署与配置](docs/DEPLOYMENT.md)。云服务按用量计费。
 
-> `/health` 的 `ready` 仅检查配置是否齐全，不验证服务权限、余额、网络或真实音频效果。公网仅暴露回调网关，调试接口保留在本机。
+> `/health` 检查配置是否齐全，Milvus模式还检查当前版本记录数；这不代表服务权限、余额或真实音频已验收。公网仅暴露回调网关，调试接口保留在本机。
 
 ## 接口示例
 
@@ -169,7 +203,7 @@ curl -G http://127.0.0.1:3001/debug/rag \
   --data-urlencode "query=SC-PB27多重"
 ```
 
-返回包含 `retrieval_mode`、`sources`、`version` 和 `retrieved_context`，可区分精确型号、本地规则、云检索与无结果。
+返回包含 `retrieval_mode`、`sources`、`version` 和 `retrieved_context`，可区分精确型号、本地规则、Milvus、云检索与无结果。
 
 ### 文本咨询
 
@@ -233,8 +267,12 @@ npm test -- --watchAll=false --runInBand
 npm run build
 
 # rag_llm_server 目录，已激活虚拟环境
-python -m unittest test_reproduction test_commerce test_evaluate_commerce -v
+python -m unittest test_reproduction test_commerce test_evaluate_commerce test_milvus -v
 python evaluate_commerce.py
+# 真实 Milvus / Embedding + 模拟生成
+python evaluate_commerce.py --backend milvus
+# 真实检索与生成（API用量）
+python evaluate_commerce.py --live --backend milvus --ids 1 11
 
 # 真实云知识库 + Ark 检查，会产生 API 费用
 # 要求 KB_MODE=cloud / MOCK_MODE=false
@@ -246,7 +284,7 @@ python evaluate_commerce.py --live --cases reproduction/ecommerce_cases_v2.json 
 
 结果写入根目录 `.runtime/`。报告包含用例文件 SHA-256、运行时间和所选 ID；重复运行时，旧报告自动加 UTC 时间戳归档。全量与 `--ids` 子集结果独立保存，不能拼接成同一轮通过数。模拟回归检查资料覆盖与规则路径；真实回归检查预设关键词，均不能代表完整事实准确率。语音识别、插话、首音延迟与持续通话需要浏览器人工验收。
 
-2026-10-31 本地模拟关键词回归为 136/147，通过率不代表真实模型事实准确率；详见[本次验证记录](docs/VALIDATION.md)。
+2026-10-31 本地模拟关键词回归为 136/147，通过率不代表真实模型事实准确率；2026-11-02恢复核验：后端26项、前端5项测试通过，实际Milvus检索、豆包文本和SSE回调通过。历史Milvus检索＋模拟生成关键词检查为135/147，不能与旧云检索＋真实生成132/147直接比较；音频及持续通话仍需人工验收。详见[验证记录](docs/VALIDATION.md)。
 
 ## 常见问题
 

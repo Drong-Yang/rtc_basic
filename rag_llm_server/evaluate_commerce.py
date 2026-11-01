@@ -46,12 +46,14 @@ def load_cases(path=None, ids=None):
     return path.resolve(), hashlib.sha256(raw).hexdigest(), cases
 
 
-async def run(live, ids=None, cases_path=None):
+async def run(live, ids=None, cases_path=None, backend=None):
     if not live:
-        settings.KB_MODE = 'sample'
+        settings.KB_MODE = backend or 'sample'
         settings.MOCK_MODE = True
-    elif settings.MOCK_MODE or settings.KB_MODE != 'cloud':
-        raise ValueError('真实评测必须使用非模拟模型与cloud知识库')
+    elif backend:
+        settings.KB_MODE = backend
+    if live and (settings.MOCK_MODE or settings.KB_MODE not in ('cloud', 'milvus')):
+        raise ValueError('真实评测必须使用非模拟模型与 cloud / milvus 知识库')
     cases_file, cases_sha256, cases = load_cases(cases_path, ids)
     started_at = datetime.now(timezone.utc).isoformat()
     # Small acceptance run, not a load test; avoid burst quotas obscuring quality.
@@ -88,12 +90,14 @@ async def run(live, ids=None, cases_path=None):
             return row
 
     rows = await asyncio.gather(*(evaluate(case) for case in cases))
-    summary = {'mode': 'real_cloud_and_ark' if live else 'sample_retrieval_only',
+    summary = {'mode': ('real_' + settings.KB_MODE + '_and_ark') if live else settings.KB_MODE + '_retrieval_mock_llm',
                'method': '关键词回归检查，不能等同完整事实准确率；真实音频仍需浏览器验收',
                'cases_file': str(cases_file), 'cases_sha256': cases_sha256,
                'started_at': started_at, 'completed_at': datetime.now(timezone.utc).isoformat(),
                'selected_ids': ids, 'total': len(rows), 'checks_passed': sum(x['checks_passed'] for x in rows), 'cases': rows}
     filename = 'ecommerce-eval-real' if live else 'ecommerce-eval-sample'
+    if settings.KB_MODE != 'sample':
+        filename += '-' + settings.KB_MODE
     if ids:
         filename += '-subset'
     output = WORKSPACE / '.runtime'
@@ -111,5 +115,7 @@ if __name__ == '__main__':
     parser.add_argument('--live', action='store_true', help='Call real KB and Ark; incurs normal service charges')
     parser.add_argument('--ids', nargs='+', type=int, help='Rerun affected case IDs only')
     parser.add_argument('--cases', default=None, help='用例文件路径，默认项目 reproduction/ecommerce_cases.json（147条）')
+    parser.add_argument('--backend', choices=['sample', 'cloud', 'milvus'], default=None,
+                        help='选择检索后端；非 --live 时仍使用模拟生成，但 cloud/milvus 会真实调用检索和向量化')
     args = parser.parse_args()
-    asyncio.run(run(args.live, args.ids, args.cases))
+    asyncio.run(run(args.live, args.ids, args.cases, args.backend))
