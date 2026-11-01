@@ -40,6 +40,8 @@ React · 火山 RTC · FastAPI · Milvus · 豆包流式生成
 
 项目基于火山引擎 RTC AIGC 示例改造前端，自建 FastAPI 服务提供 RTC 控制、RAG 检索和 CustomLLM 流式回调。准确型号优先匹配本地商品资料，通用规则使用 Milvus 语义检索，也保留云知识库模式；资料不足时明确说明，避免把相似型号的参数混用。
 
+项目演示视频：[哔哩哔哩（Bilibili）](https://b23.tv/Hl3g6z8) · [飞书](https://my.feishu.cn/wiki/FW1QwXs2ZiTHfpkOje8cdwRon0e?from=from_copylink)
+
 ## 核心能力
 
 - **实时语音**：托管 ASR/TTS 与 RTC，支持语音打断、挂断重连、字幕和输入音量展示。
@@ -81,7 +83,7 @@ Embedding、生成、ASR、TTS 和 RTC 使用云服务，Milvus 运行于本地�
 
 ### 1. 安装依赖
 
-需要 Node.js/npm、Python 3.13，无需本地 GPU。通过 GitHub 的 **Code → Download ZIP** 下载并解压，或克隆你发布的仓库，在根目录执行：
+需要 Node.js/npm、Python 3.13，无需本地 GPU。通过 GitHub 的 **Code → Download ZIP** 下载并解压，或克隆本仓库，在根目录执行：
 
 ```bash
 npm ci
@@ -246,7 +248,7 @@ curl -N http://127.0.0.1:3001/api/chat_callback \
 │   ├── knowledge/          # 演示 Markdown 与本地知识单元
 │   ├── .env.example        # 无密钥配置模板
 │   └── voice_config.example.json
-├── reproduction/          # 147 题评测集（保留 v1 的 27 题）
+├── reproduction/          # 147 题电商问答评测集
 ├── scripts/                # 公网回调网关
 ├── Server/                 # 上游 Node 控制面参考
 ├── server_python/          # 早期 Python 控制面参考
@@ -276,15 +278,11 @@ python evaluate_commerce.py --live --backend milvus --ids 1 11
 
 # 真实云知识库 + Ark 检查，会产生 API 费用
 # 要求 KB_MODE=cloud / MOCK_MODE=false
-python evaluate_commerce.py --live --cases reproduction/ecommerce_cases_v2.json
-python evaluate_commerce.py --live --cases reproduction/ecommerce_cases_v2.json --ids 11 18 19
+python evaluate_commerce.py --live
+python evaluate_commerce.py --live --ids 11 18 19
 ```
 
-默认用例 `reproduction/ecommerce_cases.json` 已扩充到 147 题，与 `ecommerce_cases_v2.json` 一致；旧的 27 题保存在 `ecommerce_cases_v1.json`，可用 `--cases reproduction/ecommerce_cases_v1.json` 对照历史。`--cases` 支持绝对路径、当前目录相对路径或仓库根目录相对路径。`expect` 每项必须匹配，`reject` 任一项匹配即失败；结果分别记录 `missing_checks` 与 `violated_checks`。新增用例是评测集扩充，知识库正文仍为四份已审核演示资料。
-
-结果写入根目录 `.runtime/`。报告包含用例文件 SHA-256、运行时间和所选 ID；重复运行时，旧报告自动加 UTC 时间戳归档。全量与 `--ids` 子集结果独立保存，不能拼接成同一轮通过数。模拟回归检查资料覆盖与规则路径；真实回归检查预设关键词，均不能代表完整事实准确率。语音识别、插话、首音延迟与持续通话需要浏览器人工验收。
-
-2026-10-31 本地模拟关键词回归为 136/147，通过率不代表真实模型事实准确率；2026-11-02恢复核验：后端26项、前端5项测试通过，实际Milvus检索、豆包文本和SSE回调通过。历史Milvus检索＋模拟生成关键词检查为135/147，不能与旧云检索＋真实生成132/147直接比较；音频及持续通话仍需人工验收。详见[验证记录](docs/VALIDATION.md)。
+默认使用 `reproduction/ecommerce_cases.json` 中的 147 题电商问答用例。可通过 `--ids` 选择用例，或通过 `--cases` 指定其他用例文件；评测结果保存至仓库根目录 `.runtime/`。
 
 ## 常见问题
 
