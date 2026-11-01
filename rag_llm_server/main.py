@@ -22,7 +22,6 @@ from services.rag_service import rag_service
 from services.token_build import AccessToken, PRIVILEGES
 from services.utils import Signer
 from services.commerce import direct_answer, retrieval_query
-from services.milvus_service import milvus_service
 
 # A single worker owns local demo sessions. Their IDs survive start/stop but expire with the RTC token.
 sessions = {}
@@ -53,21 +52,9 @@ async def health():
                 'ARK_ENDPOINT_ID', 'SERVER_URL', 'CALLBACK_API_KEY']
     if settings.KB_MODE == 'cloud':
         required += ['VOLC_ACCOUNT_ID', 'KB_COLLECTION_NAME']
-    elif settings.KB_MODE == 'milvus':
-        required += ['MILVUS_URI', 'MILVUS_COLLECTION', 'EMBEDDING_MODEL', 'EMBEDDING_API_KEY']
     missing = [name for name in required if not getattr(settings, name, '')]
-    if settings.KB_MODE not in ('sample', 'cloud', 'milvus'):
-        missing.append('KB_MODE(sample/cloud/milvus)')
-    knowledge_ready = None
-    if settings.KB_MODE == 'milvus' and not missing:
-        try:
-            from services.rag_service import corpus
-            knowledge_ready = await milvus_service.count(corpus()) == len(corpus()['chunks'])
-        except (httpx.HTTPError, RuntimeError, ValueError):
-            knowledge_ready = False
-    return {'status': 'running', 'ready': not missing and knowledge_ready is not False, 'mock': settings.MOCK_MODE,
-            'knowledge_mode': settings.KB_MODE, 'missing': missing,
-            'knowledge_ready': knowledge_ready}
+    return {'status': 'running', 'ready': not missing, 'mock': settings.MOCK_MODE,
+            'knowledge_mode': settings.KB_MODE, 'missing': missing}
 
 
 @app.post('/getScenes')
@@ -346,20 +333,6 @@ async def debug_rag(query: str):
             'status': 'success' if result['context'] else 'no_results'}
 
 
-@app.get('/debug/knowledge')
-async def debug_knowledge():
-    from services.rag_service import corpus
-    result = {'knowledge_mode': settings.KB_MODE, 'documents': corpus()['documents'],
-              'knowledge_units': len(corpus()['chunks'])}
-    if settings.KB_MODE == 'milvus':
-        result.update({'collection': settings.MILVUS_COLLECTION,
-                       'embedding_model': settings.EMBEDDING_MODEL,
-                       'dimensions': settings.EMBEDDING_DIMENSIONS,
-                       'metric': 'COSINE', 'min_score': settings.MILVUS_MIN_SCORE,
-                       'active_records': await milvus_service.count(corpus())})
-    return result
-
-
 @app.exception_handler(ValueError)
 async def configuration_error(request, exc):
     return JSONResponse({'detail': str(exc)}, status_code=503)
@@ -368,11 +341,6 @@ async def configuration_error(request, exc):
 @app.exception_handler(httpx.HTTPError)
 async def upstream_error(request, exc):
     return JSONResponse({'detail': '外部服务请求失败，请核对配置、权限、配额及网络'}, status_code=502)
-
-
-@app.exception_handler(RuntimeError)
-async def knowledge_error(request, exc):
-    return JSONResponse({'detail': '检索服务未就绪，请检查 Milvus 服务及知识导入状态'}, status_code=503)
 
 
 if __name__ == '__main__':

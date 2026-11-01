@@ -46,7 +46,3 @@ python sync_knowledge.py
 ## 验收与部署限制
 
 配置检查、文本检索、真实模型输出、语音识别与打断应分别验收。`/health` 不验证外部云服务可用性。会话在进程内保存，重启失效，不能直接开启多 worker。生产部署要求见 [安全说明](../SECURITY.md)。
-
-## Milvus 检索
-
-使用 KB_MODE=milvus 可将语义检索切换到自建 Milvus。需要配置 Embedding、导入知识并验证89条有效记录。完整配置、更新与演示方法见 [Milvus指南](MILVUS.md)。
