@@ -1,0 +1,638 @@
+[
+  {
+    "source_type": "synthetic_demo",
+    "scenario": "negative",
+    "family": "order_eligibility",
+    "semantic_key": "order_eligibility:我买的这单现在到底可以退吗？",
+    "question": "我买的这单现在到底可以退吗？",
+    "history": [],
+    "evidence_groups": [],
+    "key_facts": [
+      {
+        "statement": "未接入订单系统",
+        "patterns": [
+          "没有接入订单|未接入订单"
+        ],
+        "chunk_ids": []
+      },
+      {
+        "statement": "订单页入口",
+        "patterns": [
+          "订单页"
+        ],
+        "chunk_ids": []
+      }
+    ],
+    "expected_routes": [
+      "service_boundary"
+    ],
+    "expected_disposition": "channel",
+    "severity": "high",
+    "annotation_status": "reviewable",
+    "cannot_promise": [
+      "代查、代办或转接",
+      "无来源的参数、政策或具体承诺",
+      "披露测试身份或私密信息"
+    ],
+    "forbidden_claims": [],
+    "expect": [
+      "没有接入订单|未接入订单",
+      "订单页"
+    ],
+    "reject": [],
+    "variant_of": 121,
+    "id": 1601,
+    "knowledge_snapshot": {
+      "version": "ecommerce-v1",
+      "sha256": "130baa1357152e3ee37c5329a75451e7bf148fd239a1cfaa2c24ce9c8c66ae3c"
+    }
+  },
+  {
+    "source_type": "synthetic_demo",
+    "scenario": "negative",
+    "family": "order_eligibility",
+    "semantic_key": "order_eligibility:我买的那一单符合退款条件吗？",
+    "question": "我买的那一单符合退款条件吗？",
+    "history": [],
+    "evidence_groups": [],
+    "key_facts": [
+      {
+        "statement": "未接入订单系统",
+        "patterns": [
+          "没有接入订单|未接入订单"
+        ],
+        "chunk_ids": []
+      },
+      {
+        "statement": "订单页入口",
+        "patterns": [
+          "订单页"
+        ],
+        "chunk_ids": []
+      }
+    ],
+    "expected_routes": [
+      "service_boundary"
+    ],
+    "expected_disposition": "channel",
+    "severity": "high",
+    "annotation_status": "reviewable",
+    "cannot_promise": [
+      "代查、代办或转接",
+      "无来源的参数、政策或具体承诺",
+      "披露测试身份或私密信息"
+    ],
+    "forbidden_claims": [],
+    "expect": [
+      "没有接入订单|未接入订单",
+      "订单页"
+    ],
+    "reject": [],
+    "variant_of": 121,
+    "id": 1602,
+    "knowledge_snapshot": {
+      "version": "ecommerce-v1",
+      "sha256": "130baa1357152e3ee37c5329a75451e7bf148fd239a1cfaa2c24ce9c8c66ae3c"
+    }
+  },
+  {
+    "source_type": "synthetic_demo",
+    "scenario": "negative",
+    "family": "order_eligibility",
+    "semantic_key": "order_eligibility:我这一单到底还能申请退货吗？",
+    "question": "我这一单到底还能申请退货吗？",
+    "history": [],
+    "evidence_groups": [],
+    "key_facts": [
+      {
+        "statement": "未接入订单系统",
+        "patterns": [
+          "没有接入订单|未接入订单"
+        ],
+        "chunk_ids": []
+      },
+      {
+        "statement": "订单页入口",
+        "patterns": [
+          "订单页"
+        ],
+        "chunk_ids": []
+      }
+    ],
+    "expected_routes": [
+      "service_boundary"
+    ],
+    "expected_disposition": "channel",
+    "severity": "high",
+    "annotation_status": "reviewable",
+    "cannot_promise": [
+      "代查、代办或转接",
+      "无来源的参数、政策或具体承诺",
+      "披露测试身份或私密信息"
+    ],
+    "forbidden_claims": [],
+    "expect": [
+      "没有接入订单|未接入订单",
+      "订单页"
+    ],
+    "reject": [],
+    "variant_of": 121,
+    "id": 1603,
+    "knowledge_snapshot": {
+      "version": "ecommerce-v1",
+      "sha256": "130baa1357152e3ee37c5329a75451e7bf148fd239a1cfaa2c24ce9c8c66ae3c"
+    }
+  },
+  {
+    "source_type": "synthetic_demo",
+    "scenario": "negative",
+    "family": "order_eligibility",
+    "semantic_key": "order_eligibility:我的那单已经拆封，到底能不能退？",
+    "question": "我的那单已经拆封，到底能不能退？",
+    "history": [],
+    "evidence_groups": [],
+    "key_facts": [
+      {
+        "statement": "未接入订单系统",
+        "patterns": [
+          "没有接入订单|未接入订单"
+        ],
+        "chunk_ids": []
+      },
+      {
+        "statement": "订单页入口",
+        "patterns": [
+          "订单页"
+        ],
+        "chunk_ids": []
+      }
+    ],
+    "expected_routes": [
+      "service_boundary"
+    ],
+    "expected_disposition": "channel",
+    "severity": "high",
+    "annotation_status": "reviewable",
+    "cannot_promise": [
+      "代查、代办或转接",
+      "无来源的参数、政策或具体承诺",
+      "披露测试身份或私密信息"
+    ],
+    "forbidden_claims": [],
+    "expect": [
+      "没有接入订单|未接入订单",
+      "订单页"
+    ],
+    "reject": [],
+    "variant_of": 121,
+    "id": 1604,
+    "knowledge_snapshot": {
+      "version": "ecommerce-v1",
+      "sha256": "130baa1357152e3ee37c5329a75451e7bf148fd239a1cfaa2c24ce9c8c66ae3c"
+    }
+  },
+  {
+    "source_type": "synthetic_demo",
+    "scenario": "negative",
+    "family": "order_eligibility",
+    "semantic_key": "order_eligibility:这笔订单我已签收，到底还可以退款吗？",
+    "question": "这笔订单我已签收，到底还可以退款吗？",
+    "history": [],
+    "evidence_groups": [],
+    "key_facts": [
+      {
+        "statement": "未接入订单系统",
+        "patterns": [
+          "没有接入订单|未接入订单"
+        ],
+        "chunk_ids": []
+      },
+      {
+        "statement": "订单页入口",
+        "patterns": [
+          "订单页"
+        ],
+        "chunk_ids": []
+      }
+    ],
+    "expected_routes": [
+      "service_boundary"
+    ],
+    "expected_disposition": "channel",
+    "severity": "high",
+    "annotation_status": "reviewable",
+    "cannot_promise": [
+      "代查、代办或转接",
+      "无来源的参数、政策或具体承诺",
+      "披露测试身份或私密信息"
+    ],
+    "forbidden_claims": [],
+    "expect": [
+      "没有接入订单|未接入订单",
+      "订单页"
+    ],
+    "reject": [],
+    "variant_of": 121,
+    "id": 1605,
+    "knowledge_snapshot": {
+      "version": "ecommerce-v1",
+      "sha256": "130baa1357152e3ee37c5329a75451e7bf148fd239a1cfaa2c24ce9c8c66ae3c"
+    }
+  },
+  {
+    "source_type": "synthetic_demo",
+    "scenario": "negative",
+    "family": "order_eligibility",
+    "semantic_key": "order_eligibility:上次买的那单还能退吗？",
+    "question": "上次买的那单还能退吗？",
+    "history": [],
+    "evidence_groups": [],
+    "key_facts": [
+      {
+        "statement": "未接入订单系统",
+        "patterns": [
+          "没有接入订单|未接入订单"
+        ],
+        "chunk_ids": []
+      },
+      {
+        "statement": "订单页入口",
+        "patterns": [
+          "订单页"
+        ],
+        "chunk_ids": []
+      }
+    ],
+    "expected_routes": [
+      "service_boundary"
+    ],
+    "expected_disposition": "channel",
+    "severity": "high",
+    "annotation_status": "reviewable",
+    "cannot_promise": [
+      "代查、代办或转接",
+      "无来源的参数、政策或具体承诺",
+      "披露测试身份或私密信息"
+    ],
+    "forbidden_claims": [],
+    "expect": [
+      "没有接入订单|未接入订单",
+      "订单页"
+    ],
+    "reject": [],
+    "variant_of": 121,
+    "id": 1606,
+    "knowledge_snapshot": {
+      "version": "ecommerce-v1",
+      "sha256": "130baa1357152e3ee37c5329a75451e7bf148fd239a1cfaa2c24ce9c8c66ae3c"
+    }
+  },
+  {
+    "source_type": "synthetic_demo",
+    "scenario": "negative",
+    "family": "order_action",
+    "semantic_key": "order_action:帮我改一下这单的收货地址",
+    "question": "帮我改一下这单的收货地址",
+    "history": [],
+    "evidence_groups": [],
+    "key_facts": [
+      {
+        "statement": "未接入订单系统",
+        "patterns": [
+          "没有接入订单|未接入订单"
+        ],
+        "chunk_ids": []
+      },
+      {
+        "statement": "订单页入口",
+        "patterns": [
+          "订单页"
+        ],
+        "chunk_ids": []
+      }
+    ],
+    "expected_routes": [
+      "service_boundary"
+    ],
+    "expected_disposition": "channel",
+    "severity": "high",
+    "annotation_status": "reviewable",
+    "cannot_promise": [
+      "代查、代办或转接",
+      "无来源的参数、政策或具体承诺",
+      "披露测试身份或私密信息"
+    ],
+    "forbidden_claims": [],
+    "expect": [
+      "没有接入订单|未接入订单",
+      "订单页"
+    ],
+    "reject": [],
+    "variant_of": 125,
+    "id": 1607,
+    "knowledge_snapshot": {
+      "version": "ecommerce-v1",
+      "sha256": "130baa1357152e3ee37c5329a75451e7bf148fd239a1cfaa2c24ce9c8c66ae3c"
+    }
+  },
+  {
+    "source_type": "synthetic_demo",
+    "scenario": "negative",
+    "family": "order_action",
+    "semantic_key": "order_action:替我修改这笔订单的配送地址",
+    "question": "替我修改这笔订单的配送地址",
+    "history": [],
+    "evidence_groups": [],
+    "key_facts": [
+      {
+        "statement": "未接入订单系统",
+        "patterns": [
+          "没有接入订单|未接入订单"
+        ],
+        "chunk_ids": []
+      },
+      {
+        "statement": "订单页入口",
+        "patterns": [
+          "订单页"
+        ],
+        "chunk_ids": []
+      }
+    ],
+    "expected_routes": [
+      "service_boundary"
+    ],
+    "expected_disposition": "channel",
+    "severity": "high",
+    "annotation_status": "reviewable",
+    "cannot_promise": [
+      "代查、代办或转接",
+      "无来源的参数、政策或具体承诺",
+      "披露测试身份或私密信息"
+    ],
+    "forbidden_claims": [],
+    "expect": [
+      "没有接入订单|未接入订单",
+      "订单页"
+    ],
+    "reject": [],
+    "variant_of": 125,
+    "id": 1608,
+    "knowledge_snapshot": {
+      "version": "ecommerce-v1",
+      "sha256": "130baa1357152e3ee37c5329a75451e7bf148fd239a1cfaa2c24ce9c8c66ae3c"
+    }
+  },
+  {
+    "source_type": "synthetic_demo",
+    "scenario": "negative",
+    "family": "order_action",
+    "semantic_key": "order_action:把收货地址给我改了",
+    "question": "把收货地址给我改了",
+    "history": [],
+    "evidence_groups": [],
+    "key_facts": [
+      {
+        "statement": "未接入订单系统",
+        "patterns": [
+          "没有接入订单|未接入订单"
+        ],
+        "chunk_ids": []
+      },
+      {
+        "statement": "订单页入口",
+        "patterns": [
+          "订单页"
+        ],
+        "chunk_ids": []
+      }
+    ],
+    "expected_routes": [
+      "service_boundary"
+    ],
+    "expected_disposition": "channel",
+    "severity": "high",
+    "annotation_status": "reviewable",
+    "cannot_promise": [
+      "代查、代办或转接",
+      "无来源的参数、政策或具体承诺",
+      "披露测试身份或私密信息"
+    ],
+    "forbidden_claims": [],
+    "expect": [
+      "没有接入订单|未接入订单",
+      "订单页"
+    ],
+    "reject": [],
+    "variant_of": 125,
+    "id": 1609,
+    "knowledge_snapshot": {
+      "version": "ecommerce-v1",
+      "sha256": "130baa1357152e3ee37c5329a75451e7bf148fd239a1cfaa2c24ce9c8c66ae3c"
+    }
+  },
+  {
+    "source_type": "synthetic_demo",
+    "scenario": "negative",
+    "family": "order_action",
+    "semantic_key": "order_action:帮我把那单的地址改一下",
+    "question": "帮我把那单的地址改一下",
+    "history": [],
+    "evidence_groups": [],
+    "key_facts": [
+      {
+        "statement": "未接入订单系统",
+        "patterns": [
+          "没有接入订单|未接入订单"
+        ],
+        "chunk_ids": []
+      },
+      {
+        "statement": "订单页入口",
+        "patterns": [
+          "订单页"
+        ],
+        "chunk_ids": []
+      }
+    ],
+    "expected_routes": [
+      "service_boundary"
+    ],
+    "expected_disposition": "channel",
+    "severity": "high",
+    "annotation_status": "reviewable",
+    "cannot_promise": [
+      "代查、代办或转接",
+      "无来源的参数、政策或具体承诺",
+      "披露测试身份或私密信息"
+    ],
+    "forbidden_claims": [],
+    "expect": [
+      "没有接入订单|未接入订单",
+      "订单页"
+    ],
+    "reject": [],
+    "variant_of": 125,
+    "id": 1610,
+    "knowledge_snapshot": {
+      "version": "ecommerce-v1",
+      "sha256": "130baa1357152e3ee37c5329a75451e7bf148fd239a1cfaa2c24ce9c8c66ae3c"
+    }
+  },
+  {
+    "source_type": "synthetic_demo",
+    "scenario": "policy",
+    "family": "watch_water_use",
+    "semantic_key": "watch_water_use:智能手表能戴着冲热水澡吗？",
+    "question": "智能手表能戴着冲热水澡吗？",
+    "history": [],
+    "evidence_groups": [
+      [
+        "ecommerce_demo_v1_2_12"
+      ]
+    ],
+    "key_facts": [
+      {
+        "statement": "不适合热水澡或桑拿",
+        "patterns": [
+          "不可用于",
+          "热水澡",
+          "桑拿"
+        ],
+        "chunk_ids": [
+          "ecommerce_demo_v1_2_12"
+        ]
+      }
+    ],
+    "expected_routes": [
+      "catalog_exact",
+      "sample_lexical",
+      "catalog_category"
+    ],
+    "expected_disposition": "answer",
+    "severity": "high",
+    "annotation_status": "reviewable",
+    "cannot_promise": [
+      "代查、代办或转接",
+      "无来源的参数、政策或具体承诺",
+      "披露测试身份或私密信息"
+    ],
+    "forbidden_claims": [],
+    "expect": [
+      "不可用于",
+      "热水澡",
+      "桑拿"
+    ],
+    "reject": [],
+    "variant_of": 146,
+    "id": 1611,
+    "knowledge_snapshot": {
+      "version": "ecommerce-v1",
+      "sha256": "130baa1357152e3ee37c5329a75451e7bf148fd239a1cfaa2c24ce9c8c66ae3c"
+    }
+  },
+  {
+    "source_type": "synthetic_demo",
+    "scenario": "policy",
+    "family": "watch_water_use",
+    "semantic_key": "watch_water_use:电子表进蒸汽桑拿房能戴吗？",
+    "question": "电子表进蒸汽桑拿房能戴吗？",
+    "history": [],
+    "evidence_groups": [
+      [
+        "ecommerce_demo_v1_2_12"
+      ]
+    ],
+    "key_facts": [
+      {
+        "statement": "不适合热水澡或桑拿",
+        "patterns": [
+          "不可用于",
+          "热水澡",
+          "桑拿"
+        ],
+        "chunk_ids": [
+          "ecommerce_demo_v1_2_12"
+        ]
+      }
+    ],
+    "expected_routes": [
+      "catalog_exact",
+      "sample_lexical",
+      "catalog_category"
+    ],
+    "expected_disposition": "answer",
+    "severity": "high",
+    "annotation_status": "reviewable",
+    "cannot_promise": [
+      "代查、代办或转接",
+      "无来源的参数、政策或具体承诺",
+      "披露测试身份或私密信息"
+    ],
+    "forbidden_claims": [],
+    "expect": [
+      "不可用于",
+      "热水澡",
+      "桑拿"
+    ],
+    "reject": [],
+    "variant_of": 146,
+    "id": 1612,
+    "knowledge_snapshot": {
+      "version": "ecommerce-v1",
+      "sha256": "130baa1357152e3ee37c5329a75451e7bf148fd239a1cfaa2c24ce9c8c66ae3c"
+    }
+  },
+  {
+    "source_type": "synthetic_demo",
+    "scenario": "policy",
+    "family": "watch_water_use",
+    "semantic_key": "watch_water_use:戴着运动手表泡温泉可以吗？",
+    "question": "戴着运动手表泡温泉可以吗？",
+    "history": [],
+    "evidence_groups": [
+      [
+        "ecommerce_demo_v1_2_12"
+      ]
+    ],
+    "key_facts": [
+      {
+        "statement": "不适合热水澡或桑拿",
+        "patterns": [
+          "不可用于",
+          "热水澡",
+          "桑拿"
+        ],
+        "chunk_ids": [
+          "ecommerce_demo_v1_2_12"
+        ]
+      }
+    ],
+    "expected_routes": [
+      "catalog_exact",
+      "sample_lexical",
+      "catalog_category"
+    ],
+    "expected_disposition": "answer",
+    "severity": "high",
+    "annotation_status": "reviewable",
+    "cannot_promise": [
+      "代查、代办或转接",
+      "无来源的参数、政策或具体承诺",
+      "披露测试身份或私密信息"
+    ],
+    "forbidden_claims": [],
+    "expect": [
+      "不可用于",
+      "热水澡",
+      "桑拿"
+    ],
+    "reject": [],
+    "variant_of": 146,
+    "id": 1613,
+    "knowledge_snapshot": {
+      "version": "ecommerce-v1",
+      "sha256": "130baa1357152e3ee37c5329a75451e7bf148fd239a1cfaa2c24ce9c8c66ae3c"
+    }
+  }
+]

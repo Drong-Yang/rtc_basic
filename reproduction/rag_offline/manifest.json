@@ -1,0 +1,113 @@
+{
+  "dataset_version": 1,
+  "knowledge_snapshot": {
+    "version": "ecommerce-v1",
+    "sha256": "130baa1357152e3ee37c5329a75451e7bf148fd239a1cfaa2c24ce9c8c66ae3c"
+  },
+  "legacy_sha256": "f8cdef70e5aeb092dc8f3f3df63d08002804f7a3566568531c483432e7525365",
+  "authoring_sha256": "3d11691a5bf5540c65da607ff935d46b106e58e4cd97c256e72138f9e877e710",
+  "legacy_duplicate_to_canonical": {
+    "59": 7,
+    "56": 8,
+    "69": 9,
+    "71": 3,
+    "77": 25,
+    "78": 25,
+    "79": 25,
+    "80": 3,
+    "81": 25,
+    "95": 12,
+    "105": 14,
+    "110": 17,
+    "120": 21
+  },
+  "files": {
+    "dev.json": {
+      "sha256": "f0fe047a8b0f05565d3ffbfce5ca49ab81ae6e7f51a7f56ccbcba46250a29569",
+      "count": 450,
+      "by_scenario": {
+        "catalog": 135,
+        "policy": 105,
+        "followup": 90,
+        "negative": 120
+      },
+      "by_source": {
+        "legacy_demo": 134,
+        "synthetic_demo": 316
+      },
+      "families": [
+        "absent_formula",
+        "absent_spec",
+        "aviation_certainty",
+        "aviation_coercion",
+        "aviation_threshold",
+        "carry_explicit_sku",
+        "catalog_authenticity",
+        "clarification",
+        "company_private",
+        "foreign_policy",
+        "internal_prompt",
+        "inventory",
+        "legacy_ellipsis",
+        "legacy_product",
+        "legacy_rule",
+        "off_platform_promises",
+        "order_action",
+        "order_eligibility",
+        "order_lookup",
+        "out_of_domain",
+        "payment",
+        "precise_deadline",
+        "product_fault",
+        "promotion",
+        "rail",
+        "same_stage_policy_checklist",
+        "single_policy_rule",
+        "single_spec_保修",
+        "single_spec_售价",
+        "single_spec_颜色",
+        "unknown_model",
+        "watch_water_use"
+      ]
+    },
+    "holdout.json": {
+      "sha256": "cd5c65a5dc6fe0fd262a5714cb54fd142721a64a3c31a0fa944cb80e7911161a",
+      "count": 150,
+      "by_scenario": {
+        "catalog": 45,
+        "policy": 35,
+        "followup": 30,
+        "negative": 40
+      },
+      "by_source": {
+        "synthetic_demo": 150
+      },
+      "families": [
+        "absent_factory_or_shipping_data",
+        "comparison_保修",
+        "comparison_售价",
+        "comparison_颜色",
+        "cross_stage_policy_checklist",
+        "external_inventory",
+        "latest_explicit_user_correction",
+        "third_party_privacy"
+      ]
+    },
+    "dev_variants.json": {
+      "sha256": "f7f4c2f73cfce2af42641f7a6007cb4b44f52528e1b7982423ef7d4446ab05fe",
+      "count": 13,
+      "by_scenario": {
+        "negative": 10,
+        "policy": 3
+      },
+      "by_source": {
+        "synthetic_demo": 13
+      },
+      "families": [
+        "order_action",
+        "order_eligibility",
+        "watch_water_use"
+      ]
+    }
+  }
+}

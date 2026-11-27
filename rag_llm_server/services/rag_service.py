@@ -10,11 +10,41 @@ from services.utils import Signer
 from services.commerce import normalize
 from services.milvus_service import milvus_service
 logger = logging.getLogger('uvicorn.error')
+WATCH_WATER_USE = re.compile(
+    r'(?:^(?:请问|问一下)?|[戴带]着)(?:智能|运动)?(?:手表|腕表|电子表|表)'
+    r'(?:能不能|可不可以|可以|能|可|适合)?(?:[戴带]着?)?(?:去|进|泡|冲|在)?'
+    r'(?:洗澡|淋浴|热水澡|桑拿|蒸汽房|蒸汽桑拿|温泉)'
+)
 
 
 @lru_cache(maxsize=1)
 def corpus():
     return json.loads((ROOT / 'knowledge/corpus.json').read_text(encoding='utf-8'))
+
+
+@lru_cache(maxsize=1)
+def sku_patterns():
+    # Only canonicalize known catalogue aliases; never guess a nearby model.
+    aliases = {a for p in corpus()['chunks'] if p['kind'] == 'product'
+               for a in p['aliases'] if re.fullmatch(r'(SC|EW)-[A-Za-z0-9]+', a)}
+    digits = dict(zip('0123456789', ('0零〇', '1一', '2二两', '3三', '4四',
+                                   '5五', '6六', '7七', '8八', '9九')))
+    patterns = []
+    for alias in sorted(aliases, key=len, reverse=True):
+        chars = normalize(alias)
+        body = r'[\s-]*'.join('[' + digits[c] + ']' if c in digits else c for c in chars)
+        patterns.append((re.compile(r'(?<![a-z0-9])' + body +
+                                   r'(?![a-z0-9零〇一二两三四五六七八九])', re.I), alias))
+    return patterns
+
+
+def canonicalize_skus(text):
+    # Preserve punctuation, including the history separator used by retrieval.
+    text = ''.join(unicodedata.normalize('NFKC', c)
+                   if '０' <= c <= '９' or 'Ａ' <= c <= 'Ｚ' or 'ａ' <= c <= 'ｚ' else c for c in text)
+    for pattern, alias in sku_patterns():
+        text = pattern.sub(lambda match: alias, text)
+    return text
 
 
 def terms(text):
@@ -47,14 +77,25 @@ class RagService:
     async def search(self, query):
         if settings.KB_MODE not in ('sample', 'cloud', 'milvus'):
             raise ValueError('KB_MODE 必须为 sample、cloud 或 milvus')
+        query = canonicalize_skus(query)
         data = corpus()
-        normalized = normalize(query)
         products = [x for x in data['chunks'] if x['kind'] == 'product']
         aliases = {normalize(alias) for x in products for alias in x['aliases']}
+        # For follow-ups, the latest model mention supersedes an earlier ASR error.
+        # Keep all models within that utterance so comparison questions still work.
+        identity_query = query
+        if '；追问：' in query:
+            history, current = query.rsplit('；追问：', 1)
+            for part in reversed(history.split('；') + [current]):
+                compact = normalize(part)
+                if any(a in compact for a in aliases) or re.search(r'(?:sc|ew)[\s-]*[a-z]+[\s-]*\d+', part, re.I):
+                    identity_query = part
+                    break
+        normalized = normalize(identity_query)
         # Preserve token boundaries so capacity (SSD1 1TB / U1 128G) is not part of the SKU.
         explicit = [normalize(x) for x in re.findall(
             r'(?:sc|ew)[\s-]*[a-z]+[\s-]*\d+[a-z]*',
-            unicodedata.normalize('NFKC', query).lower())]
+            unicodedata.normalize('NFKC', identity_query).lower())]
         if any(x not in aliases for x in explicit):
             return self.result(query, [], 'unknown_sku')
         matched = [x for x in products if any(normalize(a) in normalized for a in x['aliases'] if len(a) >= 3)]
@@ -76,6 +117,13 @@ class RagService:
                 matched += [x for x in data['chunks'] if x['id'] == 'aviation_review']
             if not policy_question:
                 return self.result(query, matched[:5], 'catalog_exact')
+        current = query.rsplit('；追问：', 1)[-1]
+        if not matched and WATCH_WATER_USE.search(normalize(current)):
+            # An unambiguous category question can use the active watch usage rule.
+            # If that rule disappears, continue through the configured backend.
+            watch_rule = next((x for x in data['chunks'] if x['id'] == 'ecommerce_demo_v1_2_12'), None)
+            if watch_rule:
+                return self.result(query, [watch_rule], 'catalog_category')
         if settings.KB_MODE == 'milvus':
             # Semantic queries must not be rejected by a lexical-overlap prefilter.
             hits = await milvus_service.search(query.rsplit('；追问：', 1)[-1], data)

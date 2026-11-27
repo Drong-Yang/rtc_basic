@@ -1,0 +1,11 @@
+[
+  {"id":1,"question":"嗯，好吧，嗯，SCPB 27多重","history":[{"role":"user","content":"SCP27多重"},{"role":"assistant","content":"目前没有这项信息，我无法确认。请补充准确的商品型号，或通过购买平台联系人工客服核实。"}],"expect":["568"],"reject":["演示|虚构","没有这项信息|无法确认"]},
+  {"id":2,"question":"嗯，SCPB 27多重","history":[{"role":"user","content":"SCP27多重"},{"role":"assistant","content":"目前没有这项信息，我无法确认。"}],"expect":["568"],"reject":["演示|虚构","没有这项信息|无法确认"]},
+  {"id":3,"question":"SCP B27多重","history":[{"role":"user","content":"SCP27多重"},{"role":"assistant","content":"目前没有这项信息，我无法确认。"}],"expect":["568"],"reject":["演示|虚构","没有这项信息|无法确认"]},
+  {"id":4,"question":"S C P B 二七多重","expect":["568"],"reject":["演示|虚构","没有这项信息|无法确认"]},
+  {"id":5,"question":"那尺寸呢？","history":[{"role":"user","content":"嗯，SCPB 27多重"},{"role":"assistant","content":"净重568克。"}],"expect":["153","80","33"],"reject":["演示|虚构"]},
+  {"id":6,"question":"拆开盒子以后不想要了还能退吗","expect":["7|七","完好|二次销售","对应订单和平台公示"],"reject":["演示|虚构","拆封.*一律不能"]},
+  {"id":7,"question":"SC-PB270多重","expect":["无法确认"],"reject":["568"]},
+  {"id":8,"question":"SC-PB99多重","expect":["无法确认"],"reject":["568"]},
+  {"id":9,"question":"那尺寸呢？","history":[{"role":"user","content":"SCP27多重"},{"role":"assistant","content":"目前没有这项信息，我无法确认。"},{"role":"user","content":"嗯，SCPB 27多重"},{"role":"assistant","content":"净重568克。"}],"expect":["153","80","33"],"reject":["演示|虚构","无法确认"]}
+]

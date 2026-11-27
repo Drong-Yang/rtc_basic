@@ -107,6 +107,38 @@ class MilvusTests(unittest.IsolatedAsyncioTestCase):
             with self.assertRaises(RuntimeError):
                 await rag_service.search('售后政策')
 
+    async def test_ordered_top_five_excludes_old_version_and_preserves_noise(self):
+        data = corpus()
+        relevant = 'ecommerce_demo_v1_0_9'
+        ids = [f'ecommerce_demo_v1_0_{i}' for i in (24, 9, 26, 19, 34, 32)]
+        chunks = {x['id']: x for x in data['chunks']}
+        rows = [{'chunk_id': key, 'doc_id': chunks[key]['doc_id'], 'content': chunks[key]['content'],
+                 'corpus_hash': corpus_digest(data), 'embedding_profile': embedding_profile(),
+                 'distance': 0.95 - index * 0.04} for index, key in enumerate(ids)]
+        old = {**rows[1], 'corpus_hash': 'same-chunk-old-version', 'distance': 0.99}
+        with patch.multiple(settings, KB_MODE='milvus', MILVUS_MIN_SCORE=0.45), \
+                patch('services.milvus_service.embedding_service.encode', AsyncMock(return_value=[1, 0])), \
+                patch.object(MilvusService, 'request', AsyncMock()) as request:
+            for fixture, expected in (([old, *rows], ids[:5]), ([old, rows[0]], ids[:1]), ([old], [])):
+                with self.subTest(expected=expected):
+                    request.return_value = fixture
+                    result = await rag_service.search('拆包验货还能退么')
+                    self.assertEqual([x['id'] for x in result['sources']], expected)
+                    self.assertEqual(result['retrieval_mode'], 'milvus' if expected else 'no_results')
+                    if relevant in expected:
+                        self.assertEqual(result['sources'][1]['id'], relevant)
+
+    async def test_embedding_error_does_not_mutate_cache(self):
+        service = EmbeddingService()
+        client = httpx.AsyncClient(transport=httpx.MockTransport(
+            lambda r: httpx.Response(200, json={'data': [{'embedding': [1]}]})))
+        with patch.multiple(settings, EMBEDDING_MODEL='test', EMBEDDING_DIMENSIONS=2,
+                            EMBEDDING_API_KEY='test-key'), \
+                patch('services.milvus_service.httpx.AsyncClient', return_value=client):
+            with self.assertRaisesRegex(ValueError, '维度'):
+                await service.encode('退货条件')
+        self.assertEqual(len(service.cache), 0)
+
     async def test_import_ids_stable_and_no_destructive_operations(self):
         service = MilvusService()
         sample = {'documents': [], 'chunks': [{'id': 'one', 'heading': '规则', 'content': '示例规则'}]}

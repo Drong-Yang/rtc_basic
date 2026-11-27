@@ -4,11 +4,65 @@ import httpx
 from unittest.mock import patch, AsyncMock
 from config import settings
 from services.commerce import direct_answer, retrieval_query
-from services.rag_service import rag_service
+from services.rag_service import rag_service, canonicalize_skus
 from services.llm_service import llm_service
 
 
 class CommerceTests(unittest.IsolatedAsyncioTestCase):
+    def test_personal_order_intent_keeps_general_policies_retrievable(self):
+        for question in ('我买的那单到底能不能退？', '这笔订单已签收，可以退款吗？',
+                         '帮我改一下收货地址', '替我修改那单的配送地址'):
+            with self.subTest(question=question):
+                answer = direct_answer(question)
+                self.assertIn('没有接入订单', answer)
+                self.assertIn('订单页', answer)
+        for question in ('七天无理由怎么退货？', '修改收货地址一般在哪里操作？',
+                         '退款多久能到账？', '质量问题退货运费谁承担？'):
+            with self.subTest(question=question):
+                self.assertEqual(direct_answer(question), '')
+
+    async def test_generic_watch_usage_uses_active_rule_across_backends(self):
+        for mode in ('sample', 'cloud', 'milvus'):
+            with self.subTest(mode=mode), patch.object(settings, 'KB_MODE', mode), \
+                    patch('services.rag_service.knowledge_request', AsyncMock()) as cloud, \
+                    patch('services.rag_service.milvus_service.search', AsyncMock()) as milvus:
+                result = await rag_service.search('表能带着洗澡吗')
+                self.assertEqual(result['retrieval_mode'], 'catalog_category')
+                self.assertEqual([row['id'] for row in result['sources']], ['ecommerce_demo_v1_2_12'])
+                self.assertIn('不可用于跳水、潜水、热水澡、桑拿', result['context'])
+                cloud.assert_not_awaited()
+                milvus.assert_not_awaited()
+        with patch.object(settings, 'KB_MODE', 'sample'):
+            for question in ('手机能带着洗澡吗', '数据表能带着洗澡看吗', '手表能监测洗澡时的心率吗'):
+                with self.subTest(question=question):
+                    self.assertNotEqual((await rag_service.search(question))['retrieval_mode'], 'catalog_category')
+            self.assertEqual((await rag_service.search('EW-Watch999能戴着洗澡吗'))['retrieval_mode'], 'unknown_sku')
+            self.assertEqual((await rag_service.search('EW-Watch2多重'))['retrieval_mode'], 'catalog_exact')
+
+    async def test_spoken_skus_keep_catalogue_identity_and_unknown_boundaries(self):
+        for query in ('嗯，好吧，嗯，SCPB 27多重', '嗯，SCP B27多重',
+                      'S C P B 二七多重', 'Ｓ Ｃ Ｐ Ｂ ２７多重'):
+            with self.subTest(query=query):
+                result = await rag_service.search(query)
+                self.assertEqual(result['retrieval_mode'], 'catalog_exact')
+                self.assertIn('568g', result['context'])
+                self.assertIn('SC-PB27', canonicalize_skus(query))
+        for query in ('SC-PB99多重', 'SC-PB270多重', 'SC-PB27X多重'):
+            self.assertEqual((await rag_service.search(query))['retrieval_mode'], 'unknown_sku')
+        for query in ('SC-SSD1 1TB', 'SC-U1 128G', 'SC-PB10L'):
+            self.assertEqual(canonicalize_skus(query), query)
+        self.assertEqual(canonicalize_skus('SCPB 27多重；追问：那运费呢？'), 'SC-PB27多重；追问：那运费呢？')
+        messages = [{'role': 'user', 'content': 'SCP27多重'},
+                    {'role': 'assistant', 'content': '无法确认。'},
+                    {'role': 'user', 'content': '嗯，SCPB 27多重'},
+                    {'role': 'assistant', 'content': '净重568克。'},
+                    {'role': 'user', 'content': '那尺寸呢？'}]
+        result = await rag_service.search(retrieval_query(messages))
+        self.assertEqual(result['retrieval_mode'], 'catalog_exact')
+        self.assertIn('153', result['context'])
+        messages[2]['content'] = 'SC-PB99多重'
+        self.assertEqual((await rag_service.search(retrieval_query(messages)))['retrieval_mode'], 'unknown_sku')
+
     async def test_exact_sku_alias_unknown_and_airline_conditions(self):
         for query in ('SC-PB27多重', 'ＳＣ ＰＢ２７多重'):
             result = await rag_service.search(query)
@@ -80,6 +134,24 @@ class CommerceTests(unittest.IsolatedAsyncioTestCase):
         self.assertIn('商品完好', text)
         self.assertIn('质量问题', text)
         self.assertEqual(chunks[-1]['choices'][0]['finish_reason'], 'stop')
+
+    async def test_model_receives_canonical_sku_after_previous_no_answer(self):
+        def respond(request):
+            payload = json.loads(request.content)
+            self.assertEqual(payload['messages'][-1]['content'], '嗯，好吧，嗯，SC-PB27多重')
+            self.assertIn('568g', payload['messages'][0]['content'])
+            self.assertIn('历史助手回复不是事实依据', payload['messages'][0]['content'])
+            body = 'data: ' + json.dumps({'choices': [{'index': 0, 'delta': {'content': '净重568克。'}}]}) + '\n\ndata: [DONE]\n\n'
+            return httpx.Response(200, text=body)
+        client = httpx.AsyncClient(transport=httpx.MockTransport(respond))
+        context = (await rag_service.search('SC-PB27多重'))['context']
+        with patch.object(settings, 'MOCK_MODE', False), patch.object(settings, 'ARK_API_KEY', 'test'), \
+             patch.object(settings, 'ARK_ENDPOINT_ID', 'test'), patch('services.llm_service.httpx.AsyncClient', return_value=client):
+            chunks = [c async for c in llm_service.chat_stream([
+                {'role': 'user', 'content': 'SCP27多重'},
+                {'role': 'assistant', 'content': '目前没有这项信息，我无法确认。'},
+                {'role': 'user', 'content': '嗯，好吧，嗯，SCPB 27多重'}], context)]
+        self.assertIn('568', ''.join(c['choices'][0]['delta'].get('content', '') for c in chunks))
 
 
 if __name__ == '__main__':

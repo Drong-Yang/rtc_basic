@@ -157,7 +157,7 @@ async def proxy(request: Request):
                     'EnableConversationStateCallback': True,
                     'ServerMessageURLForRTS': settings.SERVER_URL + '/api/rtc_events',
                     'ServerMessageSignatureForRTS': rtc_event_signature(),
-                    'UserId': 'AiAgent', 'WelcomeMessage': '您好，我是星核数码购物助手。这里的商品是演示数据，您可以问我商品参数和购物售后规则。'},
+                    'UserId': 'AiAgent', 'WelcomeMessage': '您好，我是星核数码购物助手。您可以问我商品参数和购物售后规则。'},
                     'Config': voice_config()})
             result = await rtc_request(action, outgoing)
             if not result.get('ResponseMetadata', {}).get('Error'):
